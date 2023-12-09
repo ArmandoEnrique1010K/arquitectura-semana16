@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/layout_barra_menu.css}">
+        <link rel="stylesheet" th:href="@{/css/form_registro_login_usuario.css}">
+    </head>
+    <body>
+        <div>
+            <th:block th:insert="layouts/layout_barra_menu :: fragmento-menu"></th:block>
+            <h1>Registro</h1>
+            <div class="container">
+                <form class="formulario" th:action="@{/registro}" method="POST" th:object="${usuarioDto}" autocomplete="off">
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <label for="txtnombre">Nombre: </label>
+                        </div>
+                        <div class="campo-entrada-texto">
+                            <input id="txtnombre" type="text" name="nombre" th:field="*{nombre}" placeholder="digite su nombre">
+                            <span class="error-campo-entrada-nombre" id="error-nombre"></span>
+                        </div>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <label for="txtapellido">Apellido: </label>
+                        </div>
+                        <div class="campo-entrada-texto">
+                            <input id="txtapellido" type="text" name="apellido" th:field="*{apellido}" placeholder="digite su apellido">
+                            <span class="error-campo-entrada-apellido" id="error-apellido"></span>
+                        </div>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-edad">
+                            <label for="txtedad">Edad: </label>
+                        </div>
+                        <div class="campo-entrada-texto">
+                            <input id="txtedad" type="number" name="edad" th:field="*{edad}" placeholder="digite su edad">
+                            <span class="error-campo-entrada-edad" id="error-edad"></span>
+                        </div>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-edad">
+                            <label for="txtdni">Dni: </label>
+                        </div>
+                        <div class="campo-entrada-texto">
+                            <input id="txtdni" type="number" name="dni" th:field="*{dni}" placeholder="digite su dni">
+                            <span class="error-campo-entrada-dni" id="error-dni"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="campo-formulario">
+                        <span>Sexo: </span>
+                        <div class="campo-entrada-radio-1">
+                            <input class="radio-button-sexo" id="rbomasculino" type="radio" name="sexo" th:field="*{sexo}" th:value="masculino"><label for="rbomasculino">Masculino</label>
+                        </div>
+                        <div class="campo-entrada-radio-2">
+                            <input class="radio-button-sexo" id="rbofemenino" type="radio" name="sexo" th:field="*{sexo}" th:value="femenino"><label for="rbofemenino">Femenino</label>
+                        </div>
+                        <span class="error-campo-entrada-sexo" id="error-sexo"></span>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <div class="campo-email">
+                            <label for="txtemail">Email: </label>
+                        </div>
+                        <div class="campo-entrada-texto">
+                            <input id="txtemail" type="email" name="email" th:field="*{email}" placeholder="ejemplo: example@email.com" autocomplete="current-email">
+                            <span class="error-campo-entrada-email" id="error-email"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <div class="campo-contraseña">
+                            <label for="txtcontraseña">Contraseña: </label>
+                        </div>
+                        <div class="campo-entrada-texto">
+                            <input id="txtcontraseña" type="password" name="password" th:field="*{password}" 
+                                   placeholder="digite su contraseña" 
+                                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$!%*?&])[A-Za-z\d@#$!%*?&]{8,}" 
+                                   title="La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo." autocomplete="current-password">
+                            <span class="error-campo-entrada-contraseña" id="error-contraseña"></span>
+
+                        </div>
+
+                    </div>
+                    <div class="caja-botones-formulario">
+                        <button class="boton-formulario"  type="submit">Registrar</button>
+                    </div>
+                    <!-- MENSAJES -->
+                    <span class="error-campo-entrada-email" th:if="${errorEmailRepetido}" th:text="${errorEmailRepetido}"></span>
+
+                    <div style="color: green" th:if="${param.exito}">
+                        <div>Usted ha sido registrado en el sistema</div>
+                    </div>
+                    <div class="mensaje-cuenta">
+                        Si ya tienes una cuenta, <a class="link-otro-formulario" th:href="@{/login}"> inicia sesión aqui</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <script type="text/javascript" th:inline="javascript" th:src="@{/js/form_registro_usuario.js}"></script>
+    </body>
+</html>

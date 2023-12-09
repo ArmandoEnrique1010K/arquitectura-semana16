@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+        <!-- PLANTILLA PARA LA BARRA DE MENÚ ESTATICA DE LA APLICACIÓN -->
+        <div class="caja-barra-menu" th:fragment="fragmento-menu">
+            <div class="barra-menu-1">
+                <div class="caja-logo">
+                    <!-- PAGINA DE INICIO -->
+                    <a th:href="@{/}"><img th:src="@{/img/logo.jpg}" class="logo"></a>
+
+                </div>
+                <div class="caja-busqueda">
+                    <!-- BARRA DE BUSQUEDA DE PRODUCTOS -->
+                    <form class="formulario-busqueda" th:action="@{/productos/buscar}" method="GET">
+                        <!-- BARRA PARA INTRODUCIR TEXTO -->
+                        <input class="input-busqueda" type="search" name="p-palabraclave" 
+                               placeholder="Buscar productos..." autocomplete="off" 
+                               th:value="${palabraClave}">
+                        <!-- BOTÓN PARA INICIAR BUSQUEDA -->
+                        <button class="boton-busqueda" type="submit">
+                            <img class="imagen-boton-busqueda" th:src="@{/img/search-icon.svg}">
+                        </button>
+                    </form>
+                </div>
+                <div class="caja-registro">
+                    <!-- MOSTRAR SOLAMENTE A LOS ADMINISTRADORES -->
+                    <a class="opcion-registro" sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">
+                        <img th:src="@{/img/key-icon.svg}" class="iconos-registro">
+                        <div class="texto-registro">Administradores</div>
+                    </a>
+                    <!-- SI NO SE HA INICIADO SESION SE VA A MOSTRAR -->
+                    <a class="opcion-registro" sec:authorize="!isAuthenticated()" th:href="@{/registro}">
+                        <img th:src="@{/img/add-user.svg}" class="iconos-registro">
+                        <div class="texto-registro">Registrarse</div>
+                    </a>
+                    <a class="opcion-registro" sec:authorize="!isAuthenticated()" th:href="@{/login}">
+                        <img th:src="@{/img/user-icon.svg}" class="iconos-registro">
+                        <div class="texto-registro">Iniciar sesion</div>
+                    </a>
+                    <!-- SI SE HA INICIADO SESION, VA A MOSTRAR -->
+                    <a class="opcion-registro" sec:authorize="isAuthenticated()" th:href="@{/logout}">
+                        <img th:src="@{/img/logout.svg}" class="iconos-registro">
+                        <div class="texto-registro">Cerrar sesion</div>
+                    </a>
+
+
+                    <!-- 
+                    <div>
+                        CARRITO 
+                    </div>
+                    -->
+                </div>
+            </div>
+
+            <!-- PRODUCTOS -->
+            <div class="barra-menu-2">
+                <div class="opcion-menu">
+                    <!-- TODOS LOS PRODUCTOS -->
+                    <a th:href="@{/productos}">Comprar todo</a>
+                </div>
+
+                <!-- Iterar sobre las categorías -->
+                <div th:each="categoria : ${categorias}" class="opcion-menu">
+                    <!-- PRODUCTOS POR CATEGORIA -->
+                    <a th:href="@{/productos/{nombre}(nombre=${categoria.nombre})}" th:text="${categoria.nombre}"></a>
+                </div>
+
+                <div class="opcion-menu">
+                    <!-- PRODUCTOS EN OFERTA -->
+                    <a th:href="@{/productos/oferta}">Oferta</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<!--
+
+-->

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div th:fragment="fragmento-paginacion">
+            <div class="contenedor-botones-paginacion">
+                <!-- IR A LA PRIMERA PAGINA -->
+                <div class="pagina">
+                    <span th:if="${page.first}" class="pagina-boton-inactivo">Primera</span>
+                    <!-- <a th:if="${not page.first}" th:href="@{${page.url}(page=0)}">Primera</a> -->
+                    <a th:if="${not page.first}" class="pagina-boton-activo"  th:href="@{${urlParams}(page=0)}">Primera</a>
+                </div>
+                <!-- IR A LA ANTERIOR PAGINA -->
+                <div class="pagina">
+                    <span th:if="${not page.hasPrevious}" class="pagina-boton-inactivo">
+                        Anterior
+                    </span>
+                    <!-- <a th:if="${page.hasPrevious}" th:href="@{${page.url}(page=${page.paginaActual - 2})}">Anterior</a> -->
+                    <a th:if="${page.hasPrevious}" class="pagina-boton-activo" th:href="@{${urlParams}(page=${page.paginaActual - 2})}">Anterior</a>
+                </div>
+                <!-- IR A LA PAGINA... -->
+                <div class="pagina" th:each="item : ${page.paginas}">
+                    <span th:if="${item.actual}" class="pagina-actual pagina-boton-inactivo" th:text="${item.numero}"></span>
+                    <!-- <a th:if="${not item.actual}" th:href="@{${page.url}(page=${item.numero - 1})}" th:text="${item.numero}"></a> -->
+                    <a th:if="${not item.actual}" class="pagina-boton-activo" th:href="@{${urlParams}(page=${item.numero - 1})}" th:text="${item.numero}"></a>
+                </div>
+                <!-- IR A LA SIGUIENTE PAGINA -->
+                <div class="pagina">
+                    <span th:if="${not page.hasNext}" class="pagina-boton-inactivo">Siguiente</span>
+                    <!-- <a th:if="${page.hasNext}" th:href="@{${page.url}(page=${page.paginaActual})}">Siguiente</a> -->
+                    <a th:if="${page.hasNext}" class="pagina-boton-activo" th:href="@{${urlParams}(page=${page.paginaActual})}">Siguiente</a>
+                </div>
+                <!-- IR A LA UTLIMA PAGINA -->
+                <div class="pagina">
+                    <span th:if="${page.last}" class="pagina-boton-inactivo">Ultima</span>
+                    <!-- <a th:if="${not page.last}" th:href="@{${page.url}(page=${page.totalPaginas - 1})}">Ultima</a> -->
+                    <a th:if="${not page.last}" class="pagina-boton-activo" th:href="@{${urlParams}(page=${page.totalPaginas - 1})}">Ultima</a>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
+<!-- <a th:if="${not item.actual}" th:href="@{${page.url}(page=${item.numero - 1}, ${urlParams})}" th:text="${item.numero}"></a> -->
+
+<!-- <a th:if="${page.hasPrevious}" th:href="@{${page.url}(page=${page.paginaActual - 2}, p-categoria=${#request.getParameter('p-categoria')} )}">Anterior</a> -->
+<!-- <a th:if="${ ( #request.getParameter('p-categoria') != null || #request.getParameter('p-marcas') != null) && page.hasPrevious}" 
+  th:href="@{${page.url}(page=${page.paginaActual - 2}, p-categoria=${#request.getParameter('p-categoria')}, p-marcas=${#request.getParameter('p-marcas')} )}">Anterior</a>
+-->
+
+<!-- 
+<a th:if="${#request.getParameter('p-categoria') == null && page.hasPrevious}" 
+   th:href="@{${page.url}(page=${page.paginaActual - 2})}">Anterior</a>
+-->
+<!-- INTENTAR CON VARIAS COMBINACIONES -->
+
+
+

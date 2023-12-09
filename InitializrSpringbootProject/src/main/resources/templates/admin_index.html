@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio - Administradores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/layout_barra_menu.css}">
+        <link rel="stylesheet" th:href="@{/css/inicio.css}">
+    </head>
+    <body>
+        <div class="container">
+            <th:block th:insert="layouts/layout_admin_barra_menu :: fragmento-admin-menu"></th:block>
+            <div class="contenedor-pagina-inicio">
+                <div class="banner-principal">
+                    <h1 class="titulo-principal">ElectroStark - Bienvenido administrador</h1>
+                    <div class="parrafo-titulo">Bienvenido al sistema, ¿por donde empezamos?...</div>
+                    <div class="caja-boton-mostrar-productos">
+                        <a class="boton-mostrar-productos" th:href="@{/admin/productos}">Mostrar todos los productos almacenados</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor-ofertas">
+                <h2 class="subtitulo">Productos en oferta</h2>
+                <div class="parrafo-categorias">
+                    Aqui se muestra los primeros 6 productos en oferta
+                </div>
+                <div class="cuadro-producto" th:each="producto : ${productos}">
+                    <a th:href="@{/admin/productos/{id_producto}(id_producto=${producto.id_producto})}">
+                        <div class="cuadro-imagen-producto">
+                            <img th:src="@{/assets/productos/{rutaimagen}(rutaimagen = ${producto.imagenProductoEntity.rutaimagen}) }">
+                        </div>
+                        <div class="cuadro-descripcion-producto">
+                            <div class="caja-marca" th:text="${producto.marcaEntity.nombre}"></div>
+                            <div class="caja-nombre" th:text="${producto.nombre}">
+                            </div>
+                            <div class="caja-codigo" th:text="'Código ' + ${producto.codigo}"></div>
+                            <div class="caja-precio">
+                                <!-- PRECIO NORMAL -->
+                                <div class="texto-precio-normal-inactivo" th:if="${producto.preciooferta != null}" th:text="'S/.&nbsp' + ${#numbers.formatDecimal(producto.precionormal, 1, 2)}"></div>
+                                <div class="texto-precio-normal-activo" th:unless="${producto.preciooferta != null}" th:text="'S/.&nbsp' + ${#numbers.formatDecimal(producto.precionormal, 1, 2)}"></div>
+                                <!-- PRECIO OFERTA -->
+                                <div class="texto-precio-oferta" th:if="${producto.preciooferta} != null" th:text="'S/.&nbsp' + ${#numbers.formatDecimal(producto.preciooferta, 1, 2)}"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="contenedor-categorias">
+                <h2 class="subtitulo">Categorias</h2>
+                <div class="parrafo-categorias">
+                    Busca productos por categorias
+                </div>
+                <div class="caja-categoria">
+                    <div class="categoria" th:each="categoria : ${categorias}">
+                        <a th:href="@{/admin/productos?p-categoria={id_categoria}(id_categoria=${categoria.id_categoria})}" th:text="${categoria.nombre}"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor-categorias">
+                <h2 class="subtitulo">Marcas</h2>
+                <div class="parrafo-categorias">
+                    Busca productos por marcas
+                </div>
+                <div class="caja-categoria">
+                    <div class="categoria" th:each="marca : ${marcas}">
+                        <a th:href="@{/admin/productos?p-marcas={id_marca}(id_marca=${marca.id_marca})}" th:text="${marca.nombre}"></a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="caja-vacia">
+
+            </div>
+        </div>
+    </body>
+</html>

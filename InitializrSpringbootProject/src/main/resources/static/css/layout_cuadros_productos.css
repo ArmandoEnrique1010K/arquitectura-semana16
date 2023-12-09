@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* DEFINIR AQUI LAS "VARIABLES" QUE SE VAN A UTILIZAR */
+:root{
+    --color-blanco: rgb(255, 255, 255);
+    --color-negro: rgb(0, 0, 0);
+    --color-primario: rgb(219, 239, 225);
+    --color-secundario: rgb(63, 134, 146);
+    --color-terciario: rgb(13, 97, 106);
+    --tipo-fuente-1: 'Roboto', sans-serif;
+    --tamaño-fuente-1: 14px;
+    --tamaño-fuente-2: 15px;
+}
+
+/* CONTENEDOR GENERAL */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: var(--tipo-fuente-1);
+    font-size: var(--tamaño-fuente-2);
+}
+
+
+.contenedor-cuadros-productos{
+    display: grid;
+    grid-template-columns: 22% 22% 22% 22%;
+    column-gap: 2%;
+    row-gap: 2em;
+    justify-content: center;
+
+}
+
+.cuadro-producto{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cuadro-producto a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.cuadro-imagen-producto{
+    height: 300px;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: white;
+
+}
+.cuadro-imagen-producto img{
+    width: 300px;
+}
+
+.cuadro-producto{
+    background-color: var(--color-primario);
+    border-radius: 2em;
+    min-height: 500px;
+
+}
+
+.cuadro-descripcion-producto{
+    padding: 0 1em;
+}
+
+.caja-marca{
+    font-size: 16px;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+}
+
+.caja-nombre{
+    font-size: 18px;
+    padding-bottom: 0.6em;
+}
+
+.caja-codigo{
+    font-size: 14px;
+    padding-bottom: 0.6em;
+}
+
+.caja-precio{
+
+}
+
+.texto-precio-normal-inactivo{
+    color: gray;
+    text-decoration: line-through
+}
+
+.texto-precio-normal-activo{
+    font-size: 20px;
+    color: black;
+    font-weight: bolder
+
+
+}
+
+
+.texto-precio-oferta{
+    font-size: 20px;
+    color: var(--color-terciario);
+    font-weight: bolder
+}
+
+@media only screen and (max-width: 1400px) {
+    .contenedor-cuadros-productos {
+        grid-template-columns: 30% 30% 30%;
+        row-gap: 2em;
+    }
+}
+
+@media only screen and (max-width: 1090px) {
+    .contenedor-cuadros-productos {
+        grid-template-columns: 42% 42%;
+        row-gap: 2em;
+    }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- PLANTILLA PARA LA BARRA DE MENÚ ESTATICA DE LA APLICACIÓN -->
+        <div  class="caja-barra-menu" th:fragment="fragmento-admin-menu">
+
+            <div class="barra-menu-1">
+                <div class="caja-logo">
+                    <!-- PAGINA DE INICIO -->
+                    <a th:href="@{/admin}"><img th:src="@{/img/logo.jpg}" class="logo"></a>
+
+                </div>
+                <div class="caja-busqueda">
+                    <!-- BARRA DE BUSQUEDA DE PRODUCTOS -->
+                    <form class="formulario-busqueda" th:action="@{/admin/productos/buscar}" method="GET">
+                        <!-- BARRA PARA INTRODUCIR TEXTO -->
+                        <input class="input-busqueda" type="search" name="p-palabraclave" 
+                               placeholder="Buscar productos en el sistema..." autocomplete="off" 
+                               th:value="${palabraClave}">
+                        <!-- BOTÓN PARA INICIAR BUSQUEDA -->
+                        <button class="boton-busqueda" type="submit">
+                            <img class="imagen-boton-busqueda" th:src="@{/img/search-icon.svg}">
+                        </button>
+                    </form>
+                </div>
+                <div class="caja-registro">
+                    <a class="opcion-registro" th:href="@{/}">
+                        <img th:src="@{/img/key-icon.svg}" class="iconos-registro">
+                        <div class="texto-registro">Salir del modo administrador</div>
+                    </a>
+                    <a class="opcion-registro" th:href="@{/logout}">
+                        <img th:src="@{/img/logout.svg}" class="iconos-registro">
+                        <div class="texto-registro">Cerrar sesion</div>
+                    </a>
+                </div>
+            </div>
+            <div class="barra-menu-2">
+
+                <div class="opcion-menu">
+                    <!-- PRODUCTOS -->
+                    <a th:href="@{/admin/productos}">Productos</a>
+                </div>
+                <div class="opcion-menu">
+                    <!-- NUEVO PRODUCTO -->
+                    <a th:href="@{/admin/productos/nuevo}">Nuevo producto</a>
+                </div>
+                <div class="opcion-menu">
+                    <!-- CATEGORIAS -->
+                    <a th:href="@{/admin/categorias}">Categorias</a>
+                </div>
+                <div class="opcion-menu">
+                    <!-- MARCAS -->
+                    <a th:href="@{/admin/marcas}">Marcas</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

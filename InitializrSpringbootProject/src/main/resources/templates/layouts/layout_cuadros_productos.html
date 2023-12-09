@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <!-- POR EL MOMENTO, SE DEFINE COMO TABLA -->
+        <div th:fragment="fragmento-productos">
+
+            <div class="contenedor-cuadros-productos">
+                <div class="cuadro-producto" th:each="producto : ${productos}">
+                    <a th:href="@{/productos/{categoriaNombre}/{id_producto}(categoriaNombre=${producto.categoriaEntity.nombre},id_producto=${producto.id_producto})}">
+                        <div class="cuadro-imagen-producto">
+                            <img th:src="@{/assets/productos/{rutaimagen}(rutaimagen = ${producto.imagenProductoEntity.rutaimagen}) }">
+                        </div>
+                        <div class="cuadro-descripcion-producto">
+                            <div class="caja-marca" th:text="${producto.marcaEntity.nombre}"></div>
+                            <div class="caja-nombre" th:text="${producto.nombre}"></div>
+                            <div class="caja-codigo" th:text="'Código ' + ${producto.codigo}"></div>
+                            <div class="caja-precio">
+                                <!-- PRECIO NORMAL -->
+                                <div class="texto-precio-normal-inactivo" th:if="${producto.preciooferta != null}" th:text="'S/.&nbsp' + ${#numbers.formatDecimal(producto.precionormal, 1, 2)}"></div>
+                                <div class="texto-precio-normal-activo" th:unless="${producto.preciooferta != null}" th:text="'S/.&nbsp' + ${#numbers.formatDecimal(producto.precionormal, 1, 2)}"></div>
+                                <!-- PRECIO OFERTA -->
+                                <div class="texto-precio-oferta" th:if="${producto.preciooferta} != null" th:text="'S/.&nbsp' + ${#numbers.formatDecimal(producto.preciooferta, 1, 2)}"></div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,479 @@
+# PRIMERO CREAR LA BASE DE DATOS
+CREATE DATABASE dbtienda0001;
+
+# LUEGO EJECUTAR TODO ESTE SCRIPT
+USE dbtienda0001;
+
+INSERT INTO categoria (nombre, estado) VALUES
+#1
+('Computadoras', true),
+('Tabletas', true),
+('Drones y cámaras', true),
+('Audio', true),
+('Celulares', true),
+#6
+('TV y cine en casa', true),
+('Tecnologia portátil', true),
+('Impresoras', true)
+
+;
+
+INSERT INTO marca (nombre, estado) VALUES
+#1
+('Lenovo', true),
+('Apple', true),
+('Canon', true),
+('LG', true),
+('Miray', true),
+#6
+('Microsoft', true),
+('Samsung', true),
+('Nokia', true),
+('Epson', true),
+('DJI', true),
+#11
+('TP-LINK', true),
+('LOGITECH', true),
+('HP', true),
+('ASUS', true),
+('ACER', true),
+#16
+('GOPRO', true),
+('FUJIFILM', true),
+('SONY', true),
+('PHILIPS', true),
+('PANASONIC', true),
+#21
+('HONOR', true),
+('XIAOMI', true),
+('MOTOROLA', true),
+('BROTHER', true)
+;
+
+INSERT INTO imagenproducto (rutaimagen) VALUES
+('img01.jpg'),
+('img02.jpg'),
+('img03.jpg'),
+('img04.jpg'),
+('img05.jpg'),
+('img06.jpg'),
+('img07.jpg'),
+('img08.jpg'),
+('img09.jpg'),
+('img10.jpg'),
+('img11.jpg'),
+('img12.jpg'),
+('img13.jpg'),
+('img14.jpg'),
+('img15.jpg'),
+('img16.jpg'),
+('img17.jpg'),
+('img18.jpg'),
+('img19.jpg'),
+('img20.jpg'),
+('img21.jpg'),
+('img22.jpg'),
+('img23.jpg'),
+('img24.jpg'),
+('img25.jpg'),
+('img26.jpg'),
+('img27.jpg'),
+('img28.jpg'),
+('img29.jpg'),
+('img30.jpg'),
+('img31.jpg'),
+('img32.jpg'),
+('img33.jpg'),
+('img34.jpg'),
+('img35.jpg'),
+('img36.jpg'),
+('img37.jpg'),
+('img38.jpg'),
+('img39.jpg'),
+('img40.jpg'),
+('img41.jpg'),
+('img42.jpg'),
+('img43.jpg'),
+('img44.jpg'),
+('img45.jpg'),
+('img46.jpg'),
+('img47.jpg'),
+('img48.jpg'),
+('img49.jpg'),
+('img50.jpg'),
+('img51.jpg'),
+('img52.jpg'),
+('img53.jpg'),
+('img54.jpg'),
+('img55.jpg'),
+('img56.jpg'),
+('img57.jpg'),
+('img58.jpg'),
+('img59.jpg'),
+('img60.jpg'),
+('img61.jpg'),
+('img62.jpg'),
+('img63.jpg'),
+('img64.jpg'),
+('img65.jpg'),
+('img66.jpg'),
+('img67.jpg'),
+('img68.jpg'),
+('img69.jpg'),
+('img70.jpg'),
+('img71.jpg'),
+('img72.jpg'),
+('img73.jpg'),
+('img74.jpg'),
+('img75.jpg'),
+('img76.jpg'),
+('img77.jpg'),
+('img78.jpg'),
+('img79.jpg'),
+('img80.jpg')
+;
+
+INSERT INTO detallesproducto (descripcion, fichatecnica) VALUES
+('descripcion1', 'fichatecnica1'),
+('descripcion2', 'fichatecnica2'),
+('descripcion3', 'fichatecnica3'),
+('descripcion4', 'fichatecnica4'),
+('descripcion5', 'fichatecnica5'),
+('descripcion6', 'fichatecnica6'),
+('descripcion7', 'fichatecnica7'),
+('descripcion8', 'fichatecnica8'),
+('descripcion9', 'fichatecnica9'),
+('descripcion10', 'fichatecnica10'),
+('descripcion11', 'fichatecnica11'),
+('descripcion12', 'fichatecnica12'),
+('descripcion13', 'fichatecnica13'),
+('descripcion14', 'fichatecnica14'),
+('descripcion15', 'fichatecnica15'),
+('descripcion16', 'fichatecnica16'),
+('descripcion17', 'fichatecnica17'),
+('descripcion18', 'fichatecnica18'),
+('descripcion19', 'fichatecnica19'),
+('descripcion20', 'fichatecnica20'),
+('descripcion21', 'fichatecnica21'),
+('descripcion22', 'fichatecnica22'),
+('descripcion23', 'fichatecnica23'),
+('descripcion24', 'fichatecnica24'),
+('descripcion25', 'fichatecnica25'),
+('descripcion26', 'fichatecnica26'),
+('descripcion27', 'fichatecnica27'),
+('descripcion28', 'fichatecnica28'),
+('descripcion29', 'fichatecnica29'),
+('descripcion30', 'fichatecnica30'),
+('descripcion31', 'fichatecnica31'),
+('descripcion32', 'fichatecnica32'),
+('descripcion33', 'fichatecnica33'),
+('descripcion34', 'fichatecnica34'),
+('descripcion35', 'fichatecnica35'),
+('descripcion36', 'fichatecnica36'),
+('descripcion37', 'fichatecnica37'),
+('descripcion38', 'fichatecnica38'),
+('descripcion39', 'fichatecnica39'),
+('descripcion40', 'fichatecnica40'),
+('descripcion41', 'fichatecnica41'),
+('descripcion42', 'fichatecnica42'),
+('descripcion43', 'fichatecnica43'),
+('descripcion44', 'fichatecnica44'),
+('descripcion45', 'fichatecnica45'),
+('descripcion46', 'fichatecnica46'),
+('descripcion47', 'fichatecnica47'),
+('descripcion48', 'fichatecnica48'),
+('descripcion49', 'fichatecnica49'),
+('descripcion50', 'fichatecnica50'),
+('descripcion51', 'fichatecnica51'),
+('descripcion52', 'fichatecnica52'),
+('descripcion53', 'fichatecnica53'),
+('descripcion54', 'fichatecnica54'),
+('descripcion55', 'fichatecnica55'),
+('descripcion56', 'fichatecnica56'),
+('descripcion57', 'fichatecnica57'),
+('descripcion58', 'fichatecnica58'),
+('descripcion59', 'fichatecnica59'),
+('descripcion60', 'fichatecnica60'),
+('descripcion61', 'fichatecnica61'),
+('descripcion62', 'fichatecnica62'),
+('descripcion63', 'fichatecnica63'),
+('descripcion64', 'fichatecnica64'),
+('descripcion65', 'fichatecnica65'),
+('descripcion66', 'fichatecnica66'),
+('descripcion67', 'fichatecnica67'),
+('descripcion68', 'fichatecnica68'),
+('descripcion69', 'fichatecnica69'),
+('descripcion70', 'fichatecnica70'),
+('descripcion71', 'fichatecnica71'),
+('descripcion72', 'fichatecnica72'),
+('descripcion73', 'fichatecnica73'),
+('descripcion74', 'fichatecnica74'),
+('descripcion75', 'fichatecnica75');
+
+
+INSERT INTO detallesproducto (descripcion, fichatecnica) VALUES
+#76
+('Impresión sin bordes. Impresión doble cara. Impresión desde dispositivo móvil. Wifi integrado.', 
+'Modelo: MFCT920DW
+Alto: 19.5 cm
+Ancho: 43.5 cm
+Profundidad: 43.9 cm
+Peso: 9.2 kg
+Tecnología de impresión: Inyección de tinta
+Colores de impresión: 4 colores (CMYK)
+Funciones destacadas: AirPrint, Brother iPrint & Scan, Mopria/ Alimentador automatico de hojas'),
+#77
+('Impresión dúplex y conectividad en red inalámbrica',
+'Modelo: DCP-L2540DW
+Alto: 40 cm
+Ancho: 31 cm
+Profundidad: 39 cm
+Peso: 11.11 kg
+Tecnología de impresión: Láser
+Impresión sin bordes: No
+Impresión doble cara: Sí
+Impresion desde dispositivo móvil: Sí'),
+#78
+('Disponible menos de 5 unidades', 
+'Modelo: MFC-T4500DW
+Tecnología de impresión: Inyección de tinta
+Colores de impresión: 4 colores (CMYBK)
+Impresión sin bordes: No
+Impresión doble cara: No
+Impresion desde dispositivo móvil: Sí
+Capacidad en bandeja entrada: 250 hojas'),
+#79
+('Impresión desde dispositivo móvil. Wifi integrado.', 
+'Modelo: Pixma G7010
+Impresión sin bordes: Sí
+Impresión doble cara: Sí
+Impresion desde dispositivo móvil: Sí
+capacidad de bandeja de salida: 50 hojas de Papel Común
+Wifi integrado: Sí
+Bluetooth integrado: No
+Formatos de papel: A4, 4" x 6", 5" x 7", 7" x 10", 8" x 10"'),
+#80
+('Disponible menos de 5 unidades', 
+'Garantía del proveedor: 1 año + 1 año adicional con registro web
+Modelo: L5590
+Alto: 25,3 cm
+Ancho: 37,5 cm
+Profundidad: 57,8 cm
+Peso: 5,2 kg
+Tecnología de impresión: Inyección de tinta
+Colores de impresión: 4 colores (CMYK)
+Funciones destacadas: Alimentador automático de documentos
+Área de impresión: 215,9 mm x 1.200 mm')
+;
+
+
+
+INSERT INTO producto (fechaeditado, codigo, nombre, oferta, precionormal, preciooferta, estado, id_categoria, id_marca, id_imagenproducto, id_detallesproducto) VALUES
+#1
+("2023-12-01 12:00:00",'130439', 'Laptop Lenovo Ideapad Flex 5 de 14"', true, 2199, 1699, true, 1, 1, 1, 1),
+("2023-12-01 12:00:01", '124353', 'iPhone 11 6.1" 64GB 4GB RAM Negro', true, 3199, 1999, true, 5, 2, 2, 2),
+("2023-12-01 12:00:02", '126702', 'Cámara Digital Canon EOS REBEL T7', true, 3499, 3299, true, 3, 3, 3, 3),
+("2023-12-01 12:00:03", '130192', 'Televisor LG 4K UHD Smart ThinQ AI 50"', false, 1699, null, true, 6, 4, 4, 4),
+("2023-12-01 12:00:04", '129573', 'Televisor Miray LED 4K UHD Smart 65" MK65-K5000WBT', true, 1999, 1499, true, 6, 5, 5, 5),
+#6
+("2023-12-01 12:00:05", '097705', 'Camara Web Microsoft Lifecam Cinema H5D-00013', false, 279, null, true, 7, 6, 6, 6),
+("2023-12-01 12:00:06", '130292', 'Tablet Lenovo Tab M10 (3ra Gen) 10.1" WiFi 4G', true, 889, 749, true, 2, 1, 7, 7),
+("2023-12-01 12:00:07", '129729', 'Celular Libre Samsung Galaxy A04s 6.5" 64GB 4GB RAM Negro', true, 659, 519, true, 5, 7, 8, 8),
+("2023-12-01 12:00:08", '177698', 'Impresora Multifuncional Epson L4260', true, 1149, 1049, true, 8, 9, 9, 9),
+("2023-12-01 12:00:09", '129438', 'Drone DJI Mini 3 Fly More Combo Plus (RC) (GL)', false, 4499, null, true, 3, 10, 10, 10),
+#11
+("2023-12-01 12:00:10", '128386', 'Cámara de Seguridad IP TP-Link Tapo C320WS', true, 289, 279, true, 3, 11, 11, 11),
+("2023-12-01 12:00:11", '120916', 'Equipo de sonido Samsung Bluetooth 500W MX-T50/PE', true, 1199, 749, true, 4, 7, 12, 12),
+("2023-12-01 12:00:12", '128818', 'Apple Watch SE (2da Gen) GPS 44mm Blanco Estrella', false, 1699, null, true, 7, 2, 13, 13),
+("2023-12-01 12:00:13", '128317', 'iPhone 14 Pro Max 6.7" 128GB Negro Espacial', true, 6899, 5599, true, 5, 2, 14, 14),
+("2023-12-01 12:00:14", '127397', 'Audífono Gamer Logitech G G435 Negro', false, 369, null, true, 7, 12, 15, 15),
+#16
+("2023-12-01 12:00:15", '129244', 'Laptop HP de 15.6", modelo 15-dy5000la', true, 2799, 1999, true, 1, 13, 16, 16),
+("2023-12-01 12:00:16", '129925', 'Laptop Gamer Asus TUF F15 de 15.6"', false, 3699, null, true, 1, 14, 17, 17),
+("2023-12-01 12:00:17", '131040', 'Laptop Lenovo IdeaPad 3i de 15.6"', true, 1999, 1599, true, 1, 1, 18, 18),
+("2023-12-01 12:00:18", '130074', 'Laptop Gamer HP Victus de 16.1"', true, 3899, 3199, true, 1, 13, 19, 19),
+("2023-12-01 12:00:19", '131037', 'Laptop Gamer Lenovo Legion 5 de 15.6"', true, 3499, 2999, true, 1, 1, 20, 20),
+#21
+("2023-12-01 12:00:20", '130760', 'Laptop Gamer Acer de 15.6", modelo AN515-58-51HS', true, 4699, 3899, true, 1, 15, 21, 21),
+("2023-12-01 12:00:21", '130123', 'Laptop Asus Vivobook 16 de 16"', false, 3499, null, true, 1, 14, 22, 22),
+("2023-12-01 12:00:22", '130584', 'Laptop 2en1 Lenovo Yoga Book 9i de 2x 13.3", modelo 82YQ000CLM', true, 8799, 8499, true, 1, 1, 23, 23),
+("2023-12-01 12:00:23", '129250', 'Laptop Acer Aspire Vero de 15.6", modelo AV15-52-589W, procesador Intel Core i5-1235U', false, 2999, null, true, 1, 15, 24, 24),
+("2023-12-01 12:00:24", '129070', 'Laptop Lenovo IdeaPad 1 15.6" AMD Ryzen 3 7320U 512GB SSD 8GB RAM Abyss Blue', true, 2199, 1599, true, 1, 1, 25, 25),
+#26
+("2023-12-01 12:00:25", '130270', 'Laptop Gamer Asus ROG Strix G16 de 16", modelo G614JV-N3059W', false, 9299, null, true, 1, 14, 26, 26),
+("2023-12-01 12:00:26", '130632', 'Laptop Asus Zenbook 14 OLED de 14", modelo UX3402ZA-KM233W', false, 4199, null, true, 1, 14, 27, 27),
+("2023-12-01 12:00:27", '131359', 'Tablet Samsung Galaxy Tab S9 FE 10.9" 128GB 6GB RAM Lila', false, 1899, null, true, 2, 7, 28, 28),
+("2023-12-01 12:00:28", '131355', 'Tablet Samsung Galaxy Tab S9 FE Plus 12.4"', false, 2699, null, true, 2, 7, 29, 29),
+("2023-12-01 12:00:29", '125601', 'iPad 9na Generación 10.2"', true, 2699, 2349, true, 2, 2, 30, 30),
+#31
+("2023-12-01 12:00:30", '126668', 'Tablet Miray 8"', true, 499, 299, true, 2, 5, 31, 31),
+("2023-12-01 12:00:31", '130003','iPad Air 10.9" WiFi 64GB Gris Espacial', true, 3999, 2899, true, 2, 2, 32, 32),
+("2023-12-01 12:00:32", '131331', 'Tablet Samsung Galaxy Tab A9 Plus 11"', false, 899, null, true, 2, 7, 33, 33),
+("2023-12-01 12:00:33", '131192', 'Drone DJI Mini 4 Pro Fly More Combo Plus (RC 2) (GL)', false, 5599, null, true, 3, 10, 34, 34),
+("2023-12-01 12:00:34", '129006', 'Cámara de Acción DJI Osmo Action 3 Adventure Combo', true, 2249, 1949, true, 3, 10, 35, 35),
+#36
+("2023-12-01 12:00:35", '129439', 'Drone DJI Mini 2 SE Fly More Combo', true, 2649, 2299, true, 3, 10, 36, 36),
+("2023-12-01 12:00:36", '122575', 'Cámara Digital GoPro Hero 9 Black', false, 899, null, true, 3, 16, 37, 37),
+("2023-12-01 12:00:37", '131188', 'Cámara Digital GoPro Hero 11 Black Creator Edition CHDFB-111-CN', false, 2449, null, true, 3, 16, 38, 38),
+("2023-12-01 12:00:38", '125083', 'Cámara Instax Fujifilm Square SQ1 Blanco Tiza', false, 599, null, true, 3, 17, 39, 39),
+("2023-12-01 12:00:39", '130430', 'Cámara Digital Canon EOS R10 18-45 IS STM', false, 5599, null, true, 3, 3, 40, 40),
+#41
+("2023-12-01 12:00:40", '131329', 'Audífono Bluetooth Samsung Galaxy Buds FE Negro SM-R400NZAALTA', false, 349, null, true, 7, 7, 41, 41),
+("2023-12-01 12:00:41", '121371', 'Audífonos Noise Cancelling Sony WH-1000XM4 con Bluetooth Negro', true, 1499, 949, true, 7, 18, 42, 42),
+("2023-12-01 12:00:42", '125225', 'Audifonos True Wireless Sony WF-C500 con Bluetooth Blanco', true, 499, 239, true, 7, 18, 43, 43),
+("2023-12-01 12:00:43", '125412', 'Audífono con micrófono Philips - TAE1105BL Azul', true, 39.9, 29.9, true, 7, 19, 44, 44),
+("2023-12-01 12:00:44", '116186', 'Audifonos Over Ear Sony MDR-ZX310AP con Microfono Azul', true, 79, 69, true, 7, 18, 45, 45),
+#46
+("2023-12-01 12:00:44", '125499', 'Audífono Bluetooth Miray AM-14BT-N', true, 159, 49, true, 7, 5, 46, 46),
+("2023-12-01 12:00:45", '118403', 'Minicomponente LG CL98', true, 2799, 2499, true, 4, 4, 47, 47),
+("2023-12-01 12:00:46", 'C191882', 'Parlante Amplificador Miray PAM-123 + Mezclador De Audio Miray MAM-1201BT + Soporte P/Parlante Miray - SPM-02', true, 2788, 1599, true, 4, 5, 48, 48),
+("2023-12-01 12:00:47", '122617', 'Minicomponente Panasonic SC-AKX730PUK 2000W', true, 1499, 1299, true, 4, 20, 49, 49),
+("2023-12-01 12:00:48", '110102', 'Equipo de Sonido Sony SHAKEX70 DVD Karaoke', true, 4399, 3799, true, 4, 18, 50, 50),
+#51
+("2023-12-01 12:00:49", '117754', 'Minicomponente LG OL100', true, 2699, 2399, true, 4, 4, 51, 51),
+("2023-12-01 12:00:50", '123227', 'Equipo de Sonido Sony V13 Bluetooth Karaoke', true, 999, 799, true, 4, 18, 52, 52),
+("2023-12-01 12:00:51", '131464', 'iPhone 15 Pro 6.1" 256GB Titanio Negro', true, 6899, 6099, true, 5, 2, 53, 53),
+("2023-12-01 12:00:52", '131461', 'iPhone 15 Pro 6.1" 128GB Titanio Blanco', true, 6299, 5599, true, 5, 2, 54, 54),
+("2023-12-01 12:00:53", '131450', 'iPhone 15 Plus 6.7" 256GB Negro', true, 6299, 5599, true, 5, 2, 55, 55),
+#56
+("2023-12-01 12:00:54", '128319', 'iPhone 14 Pro Max 6.7" 128GB Oro', true, 6899, 5199, true, 5, 2, 56, 56),
+("2023-12-01 12:00:55", '129523', 'Celular Libre Honor Magic5 Lite 6.67" 128GB 6GB RAM Green Emerald', true, 1499, 1199, true, 5, 21, 57, 57),
+("2023-12-01 12:00:56", '131175', 'Kit Celular Libre Honor 90 6.7" 512GB 12GB RAM Green + Earbuds X3', false, 2399, null, true, 5, 21, 58, 58),
+("2023-12-01 12:00:57", '131096', 'Celular Libre Xiaomi 13T 6.67" 256GB 12GB RAM Negro + Smart Band 8', false, 2299, null, true, 5, 22, 59, 59),
+("2023-12-01 12:00:58", '131347', 'Celular Libre Samsung Galaxy S23 FE 6.4" 256GB 8GB RAM Purple', true, 3049, 2799, true, 5, 7, 60, 60),
+#61
+("2023-12-01 12:00:59", '131251', 'Celular Libre Motorola Moto G54 6.5" 256GB 8GB RAM Negro', true, 899, 849, true, 5, 23, 61, 61),
+("2023-12-01 12:01:00", '131345', 'Celular Libre Samsung Galaxy S23 FE 6.4" 256GB 8GB RAM Graphite', true, 3049, 2799, true, 5, 7, 62, 62),
+("2023-12-01 12:01:01", '129437', 'Celular Libre Xiaomi Redmi 12C 6.71" 128GB 4GB RAM Azul', false, 649, null, true, 5, 22, 63, 63),
+("2023-12-01 12:01:02", '131346', 'Celular Libre Samsung Galaxy S23 FE 6.4" 256GB 8GB RAM Light Green', true, 3049, 2799, true, 5, 7, 64, 64),
+("2023-12-01 12:01:03", 'C192626', 'Televisor Miray LED 4K UHD Smart 50" MK50-E203 + Grill Parrillero Miray GPM-15 + Pop Cornera Miray POPM-14 + Maletín Deportivo Miray MDM-EW35N', true, 1666, 1049, true, 6, 5, 65, 65),
+#66
+("2023-12-01 12:01:04", '129807', 'Televisor Samsung Smart TV 65" QLED 4K QN65Q80CAGXPE (2023)', true, 6999, 5799, true, 6, 7, 66, 66),
+("2023-12-01 12:01:05", '129095', 'Televisor Xiaomi 4K UHD Smart 86" Mi TV Max EU', true, 5999, 4999, true, 6, 22, 67, 67),
+("2023-12-01 12:01:06", '130412', 'Televisor Sony LED 4K UHD Google TV Smart 65" KD-65X77L LA8', true, 3699, 3499, true, 6, 18, 68, 68),
+("2023-12-01 12:01:07", '130442', 'Televisor Miray LED 4K UHD Smart 58" MK58-T1003BT', true, 1699, 1399, true, 6, 5, 69, 69),
+("2023-12-01 12:01:08",'123234', 'Televisor Sony LED 4K UHD Smart Android 85" XBR 85X805H', true, 10999, 7799, true, 6, 18, 70, 70),
+#71
+("2023-12-01 12:01:09", '130874', 'Televisor Samsung Smart TV 55" OLED 4K QN55S90CAGXPE (2023)', true, 6999, 5999, true, 6, 7, 71, 71),
+("2023-12-01 12:01:10", '129797', 'Televisor Samsung Smart TV 85" Neo QLED 8K Mini LED QN85QN900CGXPE (Nuevo)', true, 27999, 25999, true, 6, 7, 72, 72),
+("2023-12-01 12:01:11", '129653', 'Televisor LG OLED evo 4K ThinQ AI Smart 65" OLED65G3PSA (2023)', true, 12999, 10499, true, 6, 4, 73, 73),
+("2023-12-01 12:01:12", '126366', 'Televisor Philips LED 4K Ultra HD Smart 70" 70PUD7406', true, 4199, 1999, true, 6, 19, 74, 74),
+("2023-12-01 12:01:13", '129103', 'Impresora Todo-en-Uno HP Smart Tank 580', true, 829, 699, true, 8, 13, 75, 75),
+#76
+("2023-12-01 12:01:14", '123183', 'Impresora Multifuncional Brother MFCT920DW', false, 1459, null, true, 8, 24, 76, 76),
+("2023-12-01 12:01:15", '099898', 'Impresora Multifuncional Brother DCP-L2540DW', false, 1099, null, true, 8, 24, 77, 77),
+("2023-12-01 12:01:16", '115934', 'Impresora Multifuncional Brother MFC T4500DW', false, 3349, null, true, 8, 24, 78, 78),
+("2023-12-01 12:01:17", '121635', 'Impresora Multifuncional Canon G7010', true, 1299, 1149, true, 8, 3, 79, 79),
+("2023-12-01 12:01:18", '129279', 'Impresora Multifuncional Epson EcoTank L5590', false, 1229, null, true, 8, 9, 80, 80)
+;
+
+
+
+
+# LOS PRODUCTOS FUERON OBTENIDOS DE:
+#1
+# https://hiraoka.com.pe/laptop-lenovo-ideapad-flex-5-de-14-modelo-82hu0148ar-procesador-amd-ryzen-3-5300u-8gb-ram-disco-solido-de-256gb
+# https://hiraoka.com.pe/iphone-11-6-1-64gb-4gb-ram-negro
+# https://hiraoka.com.pe/camara-digital-canon-eos-rebel-t7-18-55is-75-300-mal-tarj
+# https://hiraoka.com.pe/televisores/televisores/televisor-lg-4k-uhd-smart-thinq-ai-50-50ur7300psa
+# https://hiraoka.com.pe/televisor-miray-led-4k-uhd-smart-65-mk65-k5000wbt-1
+#6
+# https://hiraoka.com.pe/camara-web-microsoft-lifecam-cinema-h5d-00013
+# https://hiraoka.com.pe/tablet-lenovo-tab-m10-3ra-gen-10-1-wifi-4g-lte-64gb-4gb-ram-gris
+# https://hiraoka.com.pe/celular-libre-samsung-galaxy-a04s-6-5-64gb-4gb-ram-negro
+# https://hiraoka.com.pe/impresora-multifuncional-epson-l4260
+# https://hiraoka.com.pe/drone-dji-mini-3-fly-more-combo-plus-rc-gl
+#11
+# https://hiraoka.com.pe/camara-de-seguridad-ip-tp-link-tapo-c320ws
+# https://hiraoka.com.pe/torre-de-sonido-samsung-mx-t50-500w
+# https://hiraoka.com.pe/apple-watch-se-gps-44mm-blanco-estrella
+# https://hiraoka.com.pe/iphone-14-pro-max-6-7-128gb-negro-espacial
+# https://hiraoka.com.pe/audifono-gamer-logitech-g-g435-negro
+#16
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-hp-15-dy5000la-15-6-intel-core-i5-1235u-512gb-ssd-8gb-ram
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-gamer-asus-modelo-fx506hc-hn111w-procesador-intel-core-i5-11400h-8gb-ram-512gb-de-disco-solido
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-lenovo-ideapad-3i-modelo-81wb01exar-procesador-intel-core-i5-10210u-12gb-ram
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-gamer-hp-victus-de-16-1-modelo-16-d0507la-tarjeta-grafica-nvidia-geforce-rtx-3050-procesador-intel-core-i5-11400h-8gb-ram
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-gamer-lenovo-legion-5-de-15-6-modelo-82nw006sar-tarjeta-grafica-radeon-rx-6600m-procesador-amd-ryzen-5-5600h-16gb-ram-disco-solido-de-512gb-camara-web-720p-hd-entrada-hdmi-usb-bluetooth-5-1-windows-11-para-gamers
+#21
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-gamer-acer-de-15-6-modelo-an515-58-51hs-tarjeta-grafica-geforce-rtx-4050-procesador-intel-core-i5-12450h-8gb-ram-disco-solido-de-512gb-camara-web-720px-hd-entrada-usb-hdmi-y-tipo-c-windows-11-wifi-para-gamers
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-asus-vivobook-de-16-modelo-x1605za-mb213w-procesador-intel-core-i7-1255u-12gb-ram-512gb-de-disco-solido-pantalla-wuxga-entrada-usb-hdmi-y-tipo-c-windows-11-bluetooth-5-3-camara-web-720p-hd-para-oficina-o-estudiante
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-lenovo-82yq000clm-procesador-intel-core-i7-1355u-16gb-ram-disco-solido-de-1tb-camara-web-5mp-ir-entrada-usb-tipo-c-bluetooth-5-1-wifi-windows-11-home-para-oficina-o-estudiantes
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-acer-aspire-vero-de-15-6-modelo-av15-52-589w-procesador-intel-core-i5-1235u-8gb-ram-512gb-de-disco-solido-camara-web-720p-hd-entrada-usb-hdmi-windows-11-wifi-bluetooth-5-0-para-oficina-o-estudiante-universitario
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-lenovo-ideapad-1-15-6-amd-ryzen-3-7320u-512gb-ssd-8gb-ram
+#26
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-gamer-asus-de-16-modelo-g614jv-n3059w-procesador-intel-core-i9-13va-gen-16gb-ram-1tb-de-disco-solido-camara-web-720p-hd-entrada-usb-hdmi-rj45-y-tipo-c-windows-11-wifi-bluetooth-5-3-tarjeta-grafica-geforce-rtx4060
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/laptop-asus-zenbook-de-14-modelo-ux3402za-km233w-procesador-intel-core-i5-1240p-8gb-ram-512gb-de-disco-solido-entrada-usb-hdmi-y-tipo-c-windows-11-bluetooth-5-3-camara-web-1080p-fhd-para-oficina-o-estudiante
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/tablets/tablet-samsung-galaxy-tab-s9-fe-10-9-128gb-6gb-ram-lila
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/tablets/tablet-samsung-galaxy-tab-s9-fe-plus-12-4-128gb-8gb-ram-silver
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/tablets/ipad-9na-generacion-10-2-wifi-256gb-gris-espacial
+#31
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/tablets/tablet-miray-8-32gb-3gb-ram-tpm4g-e9863
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/tablets/ipad-air-10-9-wifi-64gb-gris-espacial
+# https://hiraoka.com.pe/computo-y-tecnologia/computadoras/tablets/tablet-samsung-galaxy-tab-a9-plus-11-64gb-4gb-ram-graphite
+# https://hiraoka.com.pe/computo-y-tecnologia/fotografia/drone-dji-mini-4-pro-fly-more-combo-plus-rc-2-gl
+# https://hiraoka.com.pe/computo-y-tecnologia/fotografia/camara-de-accion-dji-osmo-action-3-adventure-combo
+#36
+# https://hiraoka.com.pe/computo-y-tecnologia/fotografia/drone-dji-mini-2-se-fly-more-combo
+# https://hiraoka.com.pe/computo-y-tecnologia/fotografia/camara-digital-gopro-hero-9-black
+# https://hiraoka.com.pe/computo-y-tecnologia/fotografia/camara-digital-gopro-hero-11-black-creator-edition-chdfb-111-cn
+# https://hiraoka.com.pe/computo-y-tecnologia/fotografia/camara-instax-fujifilm-square-sq1-blanco-tiza
+# https://hiraoka.com.pe/computo-y-tecnologia/fotografia/camara-digital-canon-eos-r10-18-45-is-stm
+#41
+# https://hiraoka.com.pe/audio-y-musica/audifonos/audifono-bluetooth-samsung-galaxy-buds-fe-negro-sm-r400nzaalta
+# https://hiraoka.com.pe/audio-y-musica/audifonos/audifono-sony-wh1000xm4
+# https://hiraoka.com.pe/audio-y-musica/audifonos/audifonos-true-wireless-sony-wf-c500-con-bluetooth-blanco
+# https://hiraoka.com.pe/audio-y-musica/audifonos/audifono-con-microfono-philips-tae1105bl-azul
+# https://hiraoka.com.pe/audio-y-musica/audifonos/audifonos-over-ear-con-microfono-sony-mdr-zx310ap-azul
+#46
+# https://hiraoka.com.pe/audio-y-musica/audifonos/audifono-bluetooth-miray-am-14bt-n
+# https://hiraoka.com.pe/audio-y-musica/audio/minicomponente-lg-cl98
+# https://hiraoka.com.pe/audio-y-musica/audio/parlante-amplificador-miray-pam-123-mezclador-de-audio-miray-mam-1201bt-soporte-p-parlante-miray-spm-02
+# https://hiraoka.com.pe/audio-y-musica/audio/minicomponente-panasonic-sc-akx730puk-2000w
+# https://hiraoka.com.pe/audio-y-musica/audio/equipo-de-sonido-sony-shakex70-dvd-karaoke
+#51
+# https://hiraoka.com.pe/audio-y-musica/audio/minicomponente-lg-ol100
+# https://hiraoka.com.pe/audio-y-musica/audio/equipo-de-sonido-sony-v13-bluetooth-karaoke
+# https://hiraoka.com.pe/celulares/celulares/iphone-15-pro-6-1-256gb-titanio-negro
+# https://hiraoka.com.pe/celulares/celulares/iphone-15-pro-6-1-128gb-titanio-blanco
+# https://hiraoka.com.pe/celulares/celulares/iphone-15-plus-6-7-256gb-negro
+#56
+# https://hiraoka.com.pe/celulares/celulares/iphone-14-pro-max-6-7-128gb-oro
+# https://hiraoka.com.pe/celulares/celulares/celular-libre-honor-magic5-lite-6-65-128gb-6gb-ram-green-emerald
+# https://hiraoka.com.pe/celulares/celulares/kit-celular-libre-honor-90-6-7-512gb-12gb-ram-green-earbuds-x3
+# https://hiraoka.com.pe/celulares/celulares/celular-libre-xiaomi-13t-6-67-256gb-12gb-ram-negro-smart-band-8
+# https://hiraoka.com.pe/celulares/celulares/celular-libre-samsung-galaxy-s23-fe-6-4-256gb-8gb-ram-purple
+#61
+# https://hiraoka.com.pe/celulares/celulares/celular-libre-motorola-moto-g54-6-5-256gb-8gb-ram-negro
+# https://hiraoka.com.pe/celulares/celulares/celular-libre-samsung-galaxy-s23-fe-6-4-256gb-8gb-ram-graphite
+# https://hiraoka.com.pe/celulares/celulares/celular-libre-xiaomi-redmi-12c-6-71-128gb-4gb-ram-azul
+# https://hiraoka.com.pe/celulares/celulares/celular-libre-samsung-galaxy-s23-fe-6-4-256gb-8gb-ram-light-green
+# https://hiraoka.com.pe/televisores/televisores/televisor-miray-led-4k-uhd-smart-50-mk50-e203-grill-parrillero-miray-gpm-15-pop-cornera-miray-popm-14-maletin-deportivo-miray-mdm-ew35n
+#66
+# https://hiraoka.com.pe/televisores/televisores/televisor-samsung-smart-tv-65-qled-4k-qn65q80cagxpe-2023
+# https://hiraoka.com.pe/televisores/televisores/televisor-xiaomi-4k-uhd-smart-86-mi-tv-max-eu
+# https://hiraoka.com.pe/televisores/televisores/televisor-sony-led-4k-uhd-google-tv-smart-65-kd-65x77l-la8
+# https://hiraoka.com.pe/televisores/televisores/televisor-miray-led-4k-uhd-smart-58-mk58-t1003bt
+# https://hiraoka.com.pe/televisores/televisores/televisor-sony-led-4k-uhd-smart-85-xbr-85x805h
+#71
+# https://hiraoka.com.pe/televisores/televisores/televisor-samsung-smart-tv-55-oled-4k-qn55s90cagxpe-2023
+# https://hiraoka.com.pe/televisores/televisores/televisor-samsung-neo-qled-8k-mini-led-smart-75-qn85qn900cgxpe-2023
+# https://hiraoka.com.pe/televisores/televisores/televisor-lg-oled-evo-4k-thinq-ai-smart-65-oled65g3psa-2023
+# https://hiraoka.com.pe/televisores/televisores/televisor-philips-led-4k-ultra-hd-smart-70-70pud7406
+# https://hiraoka.com.pe/computo-y-tecnologia/impresoras-y-tintas/impresora-todo-en-uno-hp-smart-tank-580
+#76
+# https://hiraoka.com.pe/computo-y-tecnologia/impresoras-y-tintas/impresora-multifuncional-brother-mfct920dw
+# https://hiraoka.com.pe/computo-y-tecnologia/impresoras-y-tintas/impresora-multifuncional-brother-dcp-l2540dw
+# https://hiraoka.com.pe/computo-y-tecnologia/impresoras-y-tintas/impresora-multifuncional-brother-mfc-t4500dw
+# https://hiraoka.com.pe/computo-y-tecnologia/impresoras-y-tintas/impresora-multifuncional-canon-g7010
+# https://hiraoka.com.pe/computo-y-tecnologia/impresoras-y-tintas/impresora-multifuncional-epson-l5590
+
+
+
+# PARA ASIGNAR EL ROL DE ADMIN A UN USUARIO, PRIMERO ES NECESARIO CREAR UN USUARIO DESDE LA APLICACION WEB
+# NO ES NECESARIO INICIAR SESION EN LA APLICACION CON EL USUARIO CREADO SI VA A SER ADMINISTRADOR
+# LUEGO BUSCA EL USUARIO CREADO EN LA TABLA USUARIO, TAMBIEN BUSCA EL ROL DEL USUARIO CREADO SEGUN EL ID CORRESPONDIENTE
+# CAMBIA MANUALMENTE EL ROL DEL USUARIO DE "USER" A "ADMIN" DESDE MYSQL WORKBENCH, GUARDA CAMBIOS EN LA TABLA
+# ACTUALIZAR LA APLICACION, INICIAR SESION CON EL USUARIO CREADO Y VERIFICAR QUE APAREZCA EL BOTON "ADMINISTRADORES" EN LA ESQUINA SUPERIOR DERECHA DE LA APLICACION
+
+

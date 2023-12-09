@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* DEFINIR AQUI LAS "VARIABLES" QUE SE VAN A UTILIZAR */
+:root{
+    --color-blanco: rgb(255, 255, 255);
+    --color-negro: rgb(0, 0, 0);
+    --color-primario: rgb(219, 239, 225);
+    --color-secundario: rgb(63, 134, 146);
+    --color-terciario: rgb(13, 97, 106);
+    --tipo-fuente-1: 'Roboto', sans-serif;
+    --tamaño-fuente-1: 14px;
+    --tamaño-fuente-2: 15px;
+}
+
+/* CONTENEDOR GENERAL */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: var(--tipo-fuente-1);
+    font-size: var(--tamaño-fuente-2);
+}
+
+/* TITULO */
+h1 {
+    margin: 1em 0;
+    font-size: 2em;
+    text-align: center;
+    font-family: var(--tipo-fuente-1);
+    color: black;
+}
+
+
+.formulario{
+    width: 600px;
+}
+
+
+.campo-formulario{
+    width: 100%;
+}
+
+.campo-nombre{
+    padding: 0 0 0.5em 0;
+}
+
+
+.campo-entrada-texto{
+    padding: 0 0 1em 0;
+}
+.campo-entrada-texto input{
+    width: 100%;
+    height: 3em;
+    background-color: var(--color-primario);
+    border: none;
+    border-radius: 2em;
+    text-indent: 1em;
+}
+
+.caja-botones-formulario{
+    text-align: center;
+}
+
+.boton-formulario {
+    background-color: var(--color-secundario);
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    font-family: var(--tipo-fuente-1);
+    font-size: var(--tamaño-fuente-2);
+    color: white;
+    padding: 0;
+    margin: 0;
+    padding: 0.5em 1em;
+    margin: 0.75em;
+    border-radius: 1em;
+}
+
+.boton-formulario:hover {
+    background-color: black;
+}
+
+.error-campo-entrada-nombre, .error-campo-entrada-apellido,
+.error-campo-entrada-dni, .error-campo-entrada-edad,
+.error-campo-entrada-sexo, .error-campo-entrada-email,
+.error-campo-entrada-contraseña{
+    display: block;
+    color: red;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+}
+
+.confirmacion-campo-entrada-nombre{
+    display: block;
+    color: var(--color-terciario);
+    padding: 1em 0;
+
+}
+
+.mensaje-cuenta{
+    padding-top: 1em;
+    padding-bottom: 6em;
+}
+
+.link-otro-formulario{
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--color-terciario)
+}
+
+/*
+.error-campo-entrada-nombre{
+    display: block;
+    color: red;
+    padding: 1em 0;
+}
+*/
+
+.mensaje-cuenta{
+    padding-top: 1em;
+}
+
+.link-otro-formulario{
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--color-terciario)
+}
+
+
+.radio-button-sexo{
+    width: 2em;
+}
+
+
+.campo-entrada-radio-1, .campo-entrada-radio-2{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.campo-entrada-radio-2{
+    padding-bottom: 1em
+}

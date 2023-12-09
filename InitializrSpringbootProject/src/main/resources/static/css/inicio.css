@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* DEFINIR AQUI LAS "VARIABLES" QUE SE VAN A UTILIZAR */
+:root{
+    --color-blanco: rgb(255, 255, 255);
+    --color-negro: rgb(0, 0, 0);
+    --color-primario: rgb(219, 239, 225);
+    --color-secundario: rgb(63, 134, 146);
+    --color-terciario: rgb(13, 97, 106);
+    --tipo-fuente-1: 'Roboto', sans-serif;
+    --tamaño-fuente-1: 14px;
+    --tamaño-fuente-2: 15px;
+}
+
+/* CONTENEDOR GENERAL */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: var(--tipo-fuente-1);
+    font-size: var(--tamaño-fuente-2);
+}
+
+.contenedor-pagina-inicio{
+    width: 100%;
+}
+
+/*
+.banner-principal {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-principal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/img/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+}
+
+.banner-principal h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: black;
+    z-index: 1;
+}
+
+
+.boton-mostrar-productos {
+    background-color: var(--color-terciario);
+    text-decoration: none;
+    color: white;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: 0 0.5em;
+}
+*/
+.banner-principal {
+    background: rgba(255, 255, 255, 0.6); /* Color de fondo con opacidad */
+    height: 400px;
+    display: flex;
+    flex-direction: column; /* Añadido para apilar los elementos verticalmente */
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Añadido para establecer un contexto de apilamiento */
+}
+
+.banner-principal::before {
+    content: ""; /* Necesario para crear un pseudo-elemento */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("/img/banner.jpg") center/cover no-repeat;
+    z-index: -1; /* Coloca la imagen detrás del contenido principal */
+}
+
+
+.titulo-principal{
+    font-size: 54px;
+    color: var(--color-terciario);
+    font-weight: bold;
+
+}
+
+
+.parrafo-titulo{
+    color: var(--color-terciario);
+    font-size: 18px;
+    font-weight: bolder;
+    padding-top: 2em;
+    padding-bottom: 4em;
+}
+
+.boton-mostrar-productos {
+    background-color: var(--color-terciario);
+    text-decoration: none;
+    color: white;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin: 0 0.5em;
+    font-size: var(--tamaño-fuente-2);
+}
+
+.boton-mostrar-productos:hover{
+    background-color: black;
+}
+
+
+.subtitulo{
+    font-size: 28px;
+    color: var(--color-terciario);
+    font-weight: bold;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+}
+
+
+/*PRIMEROS PRODUCTOS EN OFERTA*/
+.contenedor-ofertas{
+    width: 70%;
+    display: block;
+}
+
+.cuadro-producto a{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: black;
+}
+
+.cuadro-imagen-producto{
+    width: 400px;
+    text-align: center;
+
+}
+
+.cuadro-imagen-producto img{
+    width: 400px;
+
+}
+
+.cuadro-descripcion-producto{
+    margin-left: 1em;
+}
+
+
+.caja-marca{
+    font-size: 20px;
+    padding: 1em 0;
+}
+.caja-nombre{
+        font-size: 18px;
+
+}
+
+.caja-codigo{
+    font-size: 16px;
+}
+
+.texto-precio-normal-inactivo{
+    color: gray;
+    text-decoration: line-through;
+}
+
+.texto-precio-normal-activo{
+    font-size: 24px;
+    color: black;
+    font-weight: bolder
+
+
+}
+.texto-precio-oferta{
+    font-size: 24px;
+    color: var(--color-terciario);
+    font-weight: bolder
+}
+.cuadro-descripcion-producto div{
+    padding-bottom: 1em;
+}
+
+/*CATEGORIAS AL PIE*/
+
+
+.contenedor-categorias{
+    width: 90%;
+}
+
+.parrafo-categorias{
+    text-align: center;
+    padding-bottom: 1.5em;
+}
+
+.caja-categoria{
+    display: grid;
+    grid-template-columns: 16% 16% 16% 16% 16%;
+    column-gap: 2%;
+    row-gap: 1em;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.categoria a{
+    display: block;
+    text-align: center;
+}
+
+
+.categoria a{
+    background-color: var(--color-secundario);
+    text-decoration: none;
+    color: white;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    font-size: var(--tamaño-fuente-2);
+}
+
+.categoria a:hover{
+    background-color: black;
+
+}
+
+/**/
+.caja-vacia{
+    height: 5em;
+}

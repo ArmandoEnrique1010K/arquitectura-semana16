@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+:root{
+    --color-blanco: rgb(255, 255, 255);
+    --color-negro: rgb(0, 0, 0);
+    --color-primario: rgb(219, 239, 225);
+    --color-secundario: rgb(63, 134, 146);
+    --color-terciario: rgb(13, 97, 106);
+    --tipo-fuente-1: 'Roboto', sans-serif;
+    --tamaño-fuente-1: 14px;
+    --tamaño-fuente-2: 15px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedor-producto{
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    font-family: var(--tipo-fuente-1);
+}
+
+/* TITULO */
+
+.caja-marca{
+    font-size: 20px;
+    padding: 1em 0;
+}
+
+h1 {
+    padding: 0 0 0.5em 0;
+    font-size: 2em;
+    text-align: left;
+    color: black;
+}
+
+
+.caja-izquierda{
+    width: 100%;
+}
+
+.caja-derecha{
+    width: 100%;
+    padding-left: 3em;
+}
+
+.caja-imagen-producto{
+    text-align: center;
+}
+
+.caja-imagen-producto img{
+    width: 560px;
+}
+
+.caja-caracteristicas div{
+    padding: 0.5em 0;
+}
+
+.texto-precio-normal-inactivo{
+    color: gray;
+    text-decoration: line-through;
+}
+
+.texto-precio-normal-activo{
+    font-size: 24px;
+    color: black;
+    font-weight: bolder
+
+
+}
+
+
+.texto-precio-oferta{
+    font-size: 24px;
+    color: var(--color-terciario);
+    font-weight: bolder
+}
+
+h3{
+    margin-top: 0.5em;
+    font-size: 18px;
+}
+
+.caja-codigo{
+    font-size: 16px;
+}
+
+.caja-descripcion, .caja-ficha-tecnica{
+    width: 100%;
+}
+
+.texto-descripcion, .texto-ficha-tecnica {
+    white-space: pre-wrap;
+    font-size: 16px
+}
+
+
+.caja-botones{
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+.boton-opcion {
+    background-color: var(--color-primario);
+    text-decoration: none;
+    color: black;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: 0 0.5em;
+}
+
+.boton-opcion:hover {
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+.caja-atras{
+    display: flex;
+    padding: 1em 0;
+}
+
+/* NOTA AL PIE DE LA PAGINA*/
+.texto-nota{
+    margin: 1em 0;
+    width: 100%;
+    text-align: left;
+
+}
+
+.caja-botones{
+    display: flex;
+    justify-content: center
+        
+}
+
+.caja-caracteristica{
+    padding-bottom: 1em;
+}
+
+.texto-fecha-edicion{
+    padding-top: 1em;
+}
+
+.boton-opcion-atras{
+    background-color: var(--color-primario);
+    text-decoration: none;
+    color: black;
+    border-radius: 0.5em;
+    padding: 0.5em 1.5em;
+}
+.boton-opcion-atras:hover{
+    background-color: var(--color-secundario);
+    color: white;
+}

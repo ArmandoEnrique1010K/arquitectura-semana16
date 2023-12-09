@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Marcas - Administradores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/layout_barra_menu.css}">
+        <link rel="stylesheet" th:href="@{/css/admin_categoria_marca.css}">
+    </head>
+    <body>
+        <div>
+            <th:block th:insert="layouts/layout_admin_barra_menu :: fragmento-admin-menu"></th:block>
+            <h1>Lista de marcas en el sistema</h1>
+            <div class="container">
+                <div class="caja-boton-nuevo">
+                    <a class="texto-boton-nuevo" th:href="@{/admin/marcas/nuevo}">Agregar nueva marca</a>
+                </div>
+                <div class="caja-tabla">
+                    <table border = "1">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th colspan="2">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="marca : ${marcas}">
+                                <td th:text="${marca.nombre}"></td>
+                                <!-- HABILITADO -->
+                                <td class="celda-centrada" th:if="${marca.estado} == true"><img th:src="@{/img/check.png}" class="imagen-estado"></td>
+                                <!-- INHABILITADO -->
+                                <td class="celda-centrada"  th:unless="${marca.estado} == true"><img th:src="@{/img/error.png}" class="imagen-estado"></td>
+                                <td class="celda-centrada" >
+                                    <a class="boton-opcion" th:href="@{/admin/marcas/{id_marca}/editar (id_marca = ${marca.id_marca}) }">Editar</a>
+                                </td >
+                                <td class="celda-centrada">
+                                    <a class="boton-opcion" th:if="${marca.estado} == true" th:href="@{/admin/marcas/{id_marca}/eliminar (id_marca = ${marca.id_marca}) }">Inhabilitar</a>
+                                    <a class="boton-opcion" th:unless="${marca.estado} == true" th:href="@{/admin/marcas/{id_marca}/restaurar (id_marca = ${marca.id_marca}) }">Habilitar</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="texto-nota">
+                    Nota: Al inhabilitar una marca, todos los productos que correspondan a esa marca no se les va a mostrar al usuario.
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

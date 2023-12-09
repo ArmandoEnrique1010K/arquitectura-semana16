@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Iniciar sesion</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/layout_barra_menu.css}">
+        <link rel="stylesheet" th:href="@{/css/form_registro_login_usuario.css}">
+    </head>
+    <body>
+        <div>
+            <th:block th:insert="layouts/layout_barra_menu :: fragmento-menu"></th:block>
+            <h1>Iniciar sesion</h1>
+            <div class="container">
+                <form class="formulario"  th:action="@{/loginProcessingUrl}" method="POST" autocomplete="off">
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+
+                            <label for="txtemail">Email: </label>
+                        </div>
+                        <div class="campo-entrada-texto">
+
+                            <input id="txtemail" type="text" name="username" placeholder="digite su email" autocomplete="current-email">
+                        </div>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                        <label for="txtcontraseña">Contraseña: </label>
+                        </div>
+                        <div class="campo-entrada-texto">
+
+                        <input id="txtcontraseña" type="password" name="password" placeholder="digite su contraseña" autocomplete="current-password">
+                        </div>
+
+                    </div> 
+                    <div class="caja-botones-formulario">
+                        <button class="boton-formulario"  type="submit">Iniciar sesión</button>
+                    </div>
+                    <!-- <div>Mensaje: </div> -->
+                    <!-- SI EL PARAMETRO "error" APARECE EN LA URL -->
+                    <div class="error-campo-entrada-nombre" th:if="${param.error}">
+                        <div>Usuario o contraseña invalidos</div>
+                    </div>
+                    <!-- SI EL PARAMETRO "logout" APARECE EN LA URL -->
+                    <div class="confirmacion-campo-entrada-nombre" th:if="${param.logout}">
+                        <div>Ha cerrado sesión exitosamente</div>
+                    </div>
+                    <div class="mensaje-cuenta">
+                        Si no tienes una cuenta, <a class="link-otro-formulario" th:href="@{/registro}"> registrate aqui</a>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+        </div>
+    </body>
+</html>

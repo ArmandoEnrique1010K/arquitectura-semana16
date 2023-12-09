@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* DEFINIR AQUI LAS "VARIABLES" QUE SE VAN A UTILIZAR */
+:root{
+    --color-blanco: rgb(255, 255, 255);
+    --color-negro: rgb(0, 0, 0);
+    --color-primario: rgb(219, 239, 225);
+    --color-secundario: rgb(63, 134, 146);
+    --color-terciario: rgb(13, 97, 106);
+    --tipo-fuente-1: 'Roboto', sans-serif;
+    --tamaño-fuente-1: 14px;
+    --tamaño-fuente-2: 15px;
+}
+
+
+.contenedor-filtros-productos{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.contenedor-formulario-filtros{
+    padding: 0 1.5em;
+    /*width: 250px;*/
+}
+.contenedor-tabla-productos{
+    width: 100%;
+    /*justify-content: center;*/
+    align-items: center;
+    margin: 0;
+    font-family: var(--tipo-fuente-1);
+    font-size: var(--tamaño-fuente-2);
+    flex-grow: 1;
+
+}
+/* TITULO */
+h1 {
+    margin: 1em 0;
+    font-size: 2em;
+    text-align: center;
+    font-family: var(--tipo-fuente-1);
+    color: black;
+}
+
+
+.cuadro-botones-paginacion{
+    width: 200px;
+    margin: auto;
+    padding-bottom: 5em;
+}
+
+/* NOTA AL PIE DE LA PAGINA*/
+.texto-nota{
+    margin: 2em 0;
+    width: 100%;
+    text-align: center;
+
+}
+
+.error-sin-productos{
+    color: red;
+}
+
+
+.texto-resultado-busqueda{
+    width: 100%;
+    padding-bottom: 1em;
+    text-align: left;
+}
+

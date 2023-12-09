@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Nueva Categoria - Administradores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/layout_barra_menu.css}">
+        <link rel="stylesheet" th:href="@{/css/admin_forms_categoria_marca.css}">
+    </head>
+    <body>
+        <div>
+            <th:block th:insert="layouts/layout_admin_barra_menu :: fragmento-admin-menu"></th:block>
+            <h1>Agregar nueva categoria</h1>
+            <div class="container">
+                <form class="formulario" th:action="@{/admin/categorias/nuevo}" th:object="${categoriaEntity}" method="POST" autocomplete="off">
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <label for="txtnombre">Nombre</label>
+                        </div>
+                        <div class="campo-entrada-texto">
+                            <input id="txtnombre" name="nombre" th:field="*{nombre}" type="text" placeholder="Nombre de la categoria">
+                        </div>
+                        <!-- ERROR NOMBRE -->
+                        <span class="error-campo-entrada-nombre" id="error-nombre"></span>
+                    </div>
+
+                    <div class="caja-botones-formulario">
+                        <button class="boton-formulario" type="submit">Guardar</button>
+                        <a class="boton-formulario" th:href="@{/admin/categorias}">Regresar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" th:inline="javascript" th:src="@{/js/admin_form_categoria.js}"></script>
+    </body>
+</html>

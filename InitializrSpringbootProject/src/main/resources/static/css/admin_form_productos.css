@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* DEFINIR AQUI LAS "VARIABLES" QUE SE VAN A UTILIZAR */
+:root{
+    --color-blanco: rgb(255, 255, 255);
+    --color-negro: rgb(0, 0, 0);
+    --color-primario: rgb(219, 239, 225);
+    --color-secundario: rgb(63, 134, 146);
+    --color-terciario: rgb(13, 97, 106);
+    --tipo-fuente-1: 'Roboto', sans-serif;
+    --tamaño-fuente-1: 14px;
+    --tamaño-fuente-2: 15px;
+}
+
+/* CONTENEDOR GENERAL */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: var(--tipo-fuente-1);
+    font-size: var(--tamaño-fuente-2);
+}
+
+/* TITULO */
+h1 {
+    margin: 1em 0;
+    font-size: 2em;
+    text-align: center;
+    font-family: var(--tipo-fuente-1);
+    color: black;
+}
+
+
+.formulario{
+    width: 600px;
+}
+
+/* Estilos comunes para campos de formulario */
+.campo-formulario{
+    width: 100%;
+    padding: 0 0 1em 0;
+
+}
+
+.campo-nombre {
+    padding: 0 0 0.5em 0;
+}
+
+
+.campo-entrada-texto,
+.campo-entrada-texto-precio,
+.campo-checkbox-oferta,
+.campo-seleccionar-opcion,
+.campo-entrada-texto-largo,
+.campo-entrada-imagen {
+    padding: 0 0 1em 0;
+}
+
+
+/* Estilo para checkbox */
+.campo-checkbox-oferta input {
+    width: 1.2em;
+    height: 3em;
+}
+
+/* Estilos comunes para campos de entrada de texto y textarea */
+.campo-entrada-texto input,
+.campo-entrada-texto-precio input,
+.campo-seleccionar-opcion select,
+.campo-entrada-texto-largo textarea {
+    width: 100%;
+    height: 3em;
+    background-color: var(--color-primario);
+    border: none;
+    border-radius: 2em;
+    text-indent: 1em;
+}
+
+.campo-entrada-texto-precio{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.campo-checkbox-oferta{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.campo-checkbox-oferta label{
+    margin-left: 10px;
+}
+
+.campo-entrada-texto-precio span{
+    margin-right: 5px;
+}
+
+
+
+.campo-seleccionar-opcion select{
+    border-radius: 2em 0 0 2em;
+}
+
+.caja-botones-formulario{
+    text-align: center;
+    padding-bottom: 5em;
+}
+
+.boton-formulario {
+    background-color: var(--color-secundario);
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    font-family: var(--tipo-fuente-1);
+    font-size: var(--tamaño-fuente-2);
+    color: white;
+    padding: 0;
+    margin: 0;
+    padding: 0.5em 1em;
+    margin: 0.75em;
+    border-radius: 1em;
+}
+
+.boton-formulario:hover {
+    background-color: black;
+}
+
+
+
+
+.campo-entrada-texto-largo textarea{
+    width: 100%;
+    height: 10em;
+    background-color: var(--color-primario);
+    border: none;
+    padding: 1em;
+    border-radius: 0;
+    text-indent: 0;
+
+}
+
+
+
+/* Estilos para el área alrededor del botón de carga de archivos */
+.campo-entrada-imagen {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.campo-entrada-imagen input[type="file"] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.campo-entrada-imagen::before {
+    content: 'Seleccionar archivo';
+    display: inline-block;
+    background: var(--color-secundario);
+    color: white;
+    padding: 8px 16px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.campo-entrada-imagen:hover::before {
+    background: black;
+}
+
+
+
+.error-campo-entrada-codigo,
+.error-campo-entrada-nombre,
+.error-campo-entrada-precionormal,
+.error-campo-opcion-categoria,
+.error-campo-opcion-marca,
+.error-campo-entrada-descripcion,
+.error-campo-entrada-fichatecnica,
+.error-campo-entrada-imagen{
+    display: block;
+    color: red;
+    /* padding:0 0 1.2em 0; */
+}
+
+div #imagen-preview{
+    text-align: center;
+}
+div #imagen-preview img{
+    width: 500px;
+}
+#txtpreciooferta:disabled {
+    background-color: gainsboro; /* Cambia el color de fondo cuando está deshabilitado */
+}

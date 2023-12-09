@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* DEFINIR AQUI LAS "VARIABLES" QUE SE VAN A UTILIZAR */
+:root{
+    --color-blanco: rgb(255, 255, 255);
+    --color-negro: rgb(0, 0, 0);
+    --color-primario: rgb(219, 239, 225);
+    --color-secundario: rgb(63, 134, 146);
+    --color-terciario: rgb(13, 97, 106);
+    --tipo-fuente-1: 'Roboto', sans-serif;
+    --tamaño-fuente-1: 14px;
+    --tamaño-fuente-2: 15px;
+}
+
+/* BARRA DE MENU */
+.caja-barra-menu{
+    width: 100%;
+    display: flex;
+    flex-direction: column
+}
+
+
+/* PRIMERA BARRA DE MENU */
+.barra-menu-1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+/* LOGOTIPO */
+.caja-logo{
+    flex-grow: 0
+}
+
+.logo{
+    height: 100px;
+    padding: 0 3em;
+}
+
+/* BARRA DE BUSQUEDA */
+.caja-busqueda{
+    flex-grow: 1
+}
+
+.formulario-busqueda{
+    display: flex;
+    flex-direction: row;
+    padding: 0 1.5em;
+    border: none;
+}
+
+.input-busqueda{
+    background-color: var(--color-primario);
+    width: 100%;
+    height: 3.5em;
+    text-indent: 1em;
+    border: none;
+    border-radius: 1em 0 0 1em;
+    font-size: var(--tamaño-fuente-1);
+    font-family: var(--tipo-fuente-1)
+}
+
+.boton-busqueda{
+    background-color: var(--color-terciario);
+    padding: 0 1.5em;
+    border: none;
+    border-radius: 0 1em 1em 0;
+}
+
+.boton-busqueda:hover{
+    background-color: black;
+}
+
+.imagen-boton-busqueda{
+    width: 1.8em;
+}
+
+/* BOTONES DE REGISTRO - INICIAR SESION */
+.caja-registro {
+    display: flex;
+    flex-direction: row;
+    margin: 0 1em; /* Ajusta el margen según tus necesidades */
+}
+
+.opcion-registro {
+    margin: 0 0.5em;
+    padding: 0.6em 0.5em;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+.iconos-registro,
+.texto-registro {
+    margin: 0 0.25em;
+}
+
+.iconos-registro {
+    height: 2.25em;
+}
+
+.texto-registro {
+    color: black;
+    font-family: var(--tipo-fuente-1);
+    font-size: var(--tamaño-fuente-2)
+}
+
+.opcion-registro:hover {
+    background-color: var(--color-primario);
+    border-radius: 1em;
+}
+
+/* SEGUNDA BARRA DE MENU */
+.barra-menu-2{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--color-primario);
+    text-align: center;
+    align-items: center;
+    justify-content: left;
+    padding-left: 1em;
+}
+
+/* CATEGORIAS */
+.opcion-menu a {
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+    color: var(--color-negro);
+    font-size: var(--tamaño-fuente-2);
+    font-family: var(--tipo-fuente-1)
+}
+
+.opcion-menu a:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+}

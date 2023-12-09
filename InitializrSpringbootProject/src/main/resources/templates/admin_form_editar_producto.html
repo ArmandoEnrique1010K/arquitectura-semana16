@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Editar Producto - Administradores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/layout_barra_menu.css}">
+        <link rel="stylesheet" th:href="@{/css/admin_form_productos.css}">
+    </head>
+    <body>
+        <div>
+            <th:block th:insert="layouts/layout_admin_barra_menu :: fragmento-admin-menu"></th:block>
+            <h1>Editar producto</h1>
+            <div class="container">
+                <form class="formulario" th:action="@{/admin/productos/{id_producto}/editar (id_producto = ${productoEntity.id_producto})}" th:object="${productoEntity}" method="POST" autocomplete="off" enctype="multipart/form-data">
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <label for="txtcodigo">Codigo</label>
+                        </div>
+                        <div class="campo-entrada-texto">
+                            <input id="txtcodigo" name="codigo" th:field="*{codigo}" type="text" placeholder="Escriba el codigo del producto">
+                        </div>
+                        <span class="error-campo-entrada-codigo" id="error-codigo"></span>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <label for="txtnombre">Nombre</label>
+                        </div>
+                        <div class="campo-entrada-texto">
+                            <input id="txtnombre" name="nombre" th:field="*{nombre}" type="text" placeholder="Escriba el nombre del producto">
+                        </div>
+                        <span class="error-campo-entrada-nombre" id="error-nombre"></span>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-oferta">
+                            <label for="chkoferta">Oferta</label>
+                        </div>
+                        <div class="campo-checkbox-oferta">
+                            <input id="chkoferta" name="oferta" th:field="*{oferta}" type="checkbox" value="1">
+                            <label for="chkoferta">Producto en oferta</label>
+                        </div>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <label for="txtprecionormal">Precio normal</label>
+                        </div>
+                        <div class="campo-entrada-texto-precio">
+                            <span>S/.</span><input id="txtprecionormal" name="precionormal" th:field="*{precionormal}" type="number" placeholder="Escriba el precio original">
+                        </div>
+                        <span class="error-campo-entrada-precionormal" id="error-precionormal"></span>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <label for="txtpreciooferta">Precio de oferta</label>
+
+                        </div>
+                        <div class="campo-entrada-texto-precio">
+                            <span>S/.</span><input id="txtpreciooferta" name="preciooferta" th:field="*{preciooferta}" type="number" placeholder="Escriba el precio de oferta" th:disabled="${!productoEntity.oferta}">
+
+                        </div>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <label for="cbocategoria">Categoria</label>
+                        </div>
+                        <div class="campo-seleccionar-opcion">
+
+                            <select id="cbocategoria" name="categoriaEntity.id_categoria" th:field="*{categoriaEntity.id_categoria}" >
+                                <option value="">Seleccione una categoria</option>
+                                <option th:each="categoria : ${categorias}"
+                                        th:value="${categoria.id_categoria}"
+                                        th:text="${categoria.nombre}"></option>
+                            </select>
+                        </div>
+                        <span class="error-campo-opcion-categoria" id="error-categoria"></span>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <label for="cbomarca">Marca</label>
+                        </div>
+                        <div class="campo-seleccionar-opcion">                       
+
+                            <select id="cbomarca" name="marcaEntity.id_marca" th:field="*{marcaEntity.id_marca}" >
+                                <option value="">Seleccione una categoria</option>
+                                <option th:each="marca : ${marcas}"
+                                        th:value="${marca.id_marca}"
+                                        th:text="${marca.nombre}"></option>
+                            </select>
+                        </div>
+                        <span class="error-campo-opcion-marca" id="error-marca"></span>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <label for="txtdescripcion">Descripcion</label><br>
+                        </div>
+                        <div class="campo-entrada-texto-largo">
+
+                            <textarea id="txtdescripcion" name="detallesproductoEntity.descripcion" th:field="*{detallesproductoEntity.descripcion}" 
+                                      placeholder="Detalla las caracteristicas del producto, puedes introducir saltos de linea en la descripción"
+                                      ></textarea>
+                        </div>
+                        <span class="error-campo-entrada-descripcion" id="error-descripcion"></span>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <label for="txtfichatecnica">Ficha tecnica</label><br>
+                        </div>
+                        <div class="campo-entrada-texto-largo">
+
+                            <textarea id="txtfichatecnica" name="detallesproductoEntity.fichatecnica" th:field="*{detallesproductoEntity.fichatecnica}" 
+                                      placeholder="Escribe la ficha tecnica del producto, el formato se define de la siguiente manera: 'caracteristica: descripción', cada salto de linea representa una caracteristica"></textarea>
+                        </div>
+                        <span class="error-campo-entrada-fichatecnica" id="error-fichatecnica"></span>
+                    </div>
+                    <div class="campo-formulario">
+                        <div class="campo-nombre">
+                            <!-- CAMPO PARA SUBIR IMAGEN -->
+                            <label for="btnimagen">Reemplazar imagen</label>
+                        </div>
+                        <div class="campo-entrada-imagen">
+
+                            <input id="btnimagen" name="imagenproducto_imagen" th:field="*{imagenProductoEntity.imagen}" type="file" accept=".png, .jpg, .jpeg, .gif">
+                            <span id="nombre-archivo">...</span>
+                        </div>
+                        <div id="imagen-preview">
+                            <img th:if="${productoEntity.imagenProductoEntity != null}" th:src="@{/assets/productos/{rutaimagen}(rutaimagen=${productoEntity.imagenProductoEntity.rutaimagen})}" alt="Imagen del producto">
+
+                        </div>
+                    </div>
+
+                    <div class="caja-botones-formulario">
+                        <button class="boton-formulario" type="submit">Guardar cambios</button>
+                        <a class="boton-formulario"  th:href="@{/admin/productos}">Regresar</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" th:inline="javascript" th:src="@{/js/admin_form_editar_producto.js}"></script>
+    </body>
+</html>

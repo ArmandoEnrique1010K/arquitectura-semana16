@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Producto - Administradores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/layout_barra_menu.css}">
+        <link rel="stylesheet" th:href="@{/css/unproducto.css}">
+    </head>
+    <body th:each="producto : ${detallesProducto}">
+        <div>
+            <th:block th:insert="layouts/layout_admin_barra_menu :: fragmento-admin-menu"></th:block>
+            <div class="contenedor-producto">
+                <div class="caja-izquierda">
+                    <div class="caja-atras">
+                        <a class="boton-opcion-atras" th:href="@{/admin/productos}">Atras</a>
+                    </div>
+                    <div class="caja-caracteristica">
+                        En: <span th:text="${producto.categoriaEntity.nombre}"></span>
+                    </div>
+                    <div class="caja-imagen-producto">
+                        <img class="imagen-producto" th:src="@{/assets/productos/{rutaimagen}(rutaimagen = ${producto.imagenProductoEntity.rutaimagen}) }">
+                    </div>
+                    <div class="texto-fecha-edicion">
+                        Fecha de edición: <span th:text="${producto.fechaeditado}"></span>
+                    </div>
+
+                    <div class="texto-nota">
+                        Nota: Esto es una previsualización del producto, se le va a mostrar al usuario si se habilita el producto.
+                    </div>
+
+                </div>
+                <div class="caja-derecha">
+                    <div class="caja-marca">
+                        <span th:text="${producto.marcaEntity.nombre}"></span>
+                    </div>
+
+                    <h1 th:text="${producto.nombre}"></h1>
+                    <div class="caja-caracteristicas">
+                        <div class="caja-codigo">
+                            Codigo <span th:text="${producto.codigo}"></span>
+                        </div>
+                        <div th:if="${producto.preciooferta != null}">
+                            <span class="texto-precio-oferta"  th:text="'Oferta S/.&nbsp' + ${#numbers.formatDecimal(producto.preciooferta, 1, 2)}"></span>
+                        </div>
+                        <div>
+                            <span class="texto-precio-normal-inactivo" th:if="${producto.preciooferta != null}" th:text="'Normal S/.&nbsp' + ${#numbers.formatDecimal(producto.precionormal, 1, 2)}"></span>
+                            <span class="texto-precio-normal-activo" th:unless="${producto.preciooferta != null}" th:text="'Normal S/.&nbsp' + ${#numbers.formatDecimal(producto.precionormal, 1, 2)}"></span>
+                        </div>
+
+                        <div class="caja-descripcion">
+                            <h3>Descripción</h3>
+                            <div class="texto-descripcion" th:text=${producto.detallesproductoEntity.descripcion}></div>
+                        </div>
+                        <div class="caja-ficha-tecnica">
+                            <h3>Ficha tecnica</h3>
+                            <div class="texto-ficha-tecnica" th:text=${producto.detallesproductoEntity.fichatecnica}></div>
+                        </div>
+                    </div>
+                    <div class="caja-botones">
+                        <a class="boton-opcion" th:href="@{/admin/productos/{id_producto}/editar (id_producto = ${producto.id_producto}) }">Editar</a>
+                        <a class="boton-opcion" th:if="${producto.estado} == true" th:href="@{/admin/productos/{id_producto}/eliminar (id_producto = ${producto.id_producto}) }">Inhabilitar</a>
+                        <a class="boton-opcion" th:unless="${producto.estado} == true" th:href="@{/admin/productos/{id_producto}/restaurar (id_producto = ${producto.id_producto}) }">Habilitar</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <script type="text/javascript" th:inline="javascript" th:src="@{/js/unproducto.js}"></script>
+
+    </body>
+</html>

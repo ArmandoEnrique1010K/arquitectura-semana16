@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+:root{
+    --color-blanco: rgb(255, 255, 255);
+    --color-negro: rgb(0, 0, 0);
+    --color-primario: rgb(219, 239, 225);
+    --color-secundario: rgb(63, 134, 146);
+    --color-terciario: rgb(13, 97, 106);
+    --tipo-fuente-1: 'Roboto', sans-serif;
+    --tamaño-fuente-1: 14px;
+    --tamaño-fuente-2: 15px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CONTENEDOR GENERAL */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: var(--tipo-fuente-1);
+    font-size: var(--tamaño-fuente-2);
+}
+
+/* TITULO */
+h1 {
+    margin: 1em 0;
+    font-size: 2em;
+    text-align: center;
+    font-family: var(--tipo-fuente-1);
+    color: black;
+}
+
+/* BOTON PARA AÑADIR UNO NUEVO */
+.caja-boton-nuevo .texto-boton-nuevo {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-secundario);
+    padding: 1em;
+    margin-bottom: 2em;
+    color: white;
+    text-decoration: none;
+    border-radius: 1em;
+}
+
+.caja-boton-nuevo .texto-boton-nuevo:hover {
+    background-color: black;
+}
+
+/* TABLA DONDE SE MUESTRA LOS PRODUCTOS */
+table {
+    border-collapse: collapse;
+    width: 700px; /* Ajusta el ancho según tus necesidades */
+    font-family: var(--tipo-fuente-1);
+}
+
+th, td {
+    border: 2px solid var(--color-terciario);
+    padding: 8px;
+}
+
+th {
+    background-color: var(--color-terciario);
+    text-align: center;
+    font-size: 1em;
+    color: white;
+}
+
+td {
+    text-align: left;
+}
+
+/* IMAGEN HABILITADO O INHABILITADO*/
+.imagen-estado {
+    width: 2em;
+}
+
+/* BOTON PARA LAS OPCIONES */
+.boton-opcion {
+    background-color: var(--color-primario);
+    text-decoration: none;
+    color: black;
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+
+.boton-opcion:hover {
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+/* ALGUNAS CELDAS CENTRADAS */
+.celda-centrada {
+    text-align: center;
+}
+
+/* NOTA AL PIE DE LA PAGINA*/
+.texto-nota{
+    margin: 2em 0;
+    width: 100%;
+    text-align: center;
+
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Productos - Administradores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/layout_barra_menu.css}">
+        <link rel="stylesheet" th:href="@{/css/admin_productos.css}">
+        <link rel="stylesheet" th:href="@{/css/layout_filtros.css}">
+        <link rel="stylesheet" th:href="@{/css/layout_paginacion.css}">
+    </head>
+    <body>
+        <div>
+            <th:block th:insert="layouts/layout_admin_barra_menu :: fragmento-admin-menu"></th:block>
+            <h1>Lista de productos en el sistema</h1>
+            <!-- 
+            <div>
+                <a th:href="@{/admin/productos/nuevo}">Nuevo producto</a>
+            </div>
+            -->
+            <div class="contenedor-filtros-productos">
+                <!-- FILTROS -->
+                <div class="contenedor-formulario-filtros">
+                    <!-- FORMULARIO PARA FILTROS -->
+                    <form th:action="@{/admin/productos}" autocomplete="off" method="GET">
+                        <th:block th:insert="layouts/layout_filtros_busqueda :: fragmento-categorias"></th:block>
+                        <th:block th:insert="layouts/layout_filtros_busqueda :: fragmento-marcas"></th:block>
+                        <th:block th:insert="layouts/layout_filtros_busqueda :: fragmento-precio"></th:block>
+                        <!--  --> 
+                        <th:block th:insert="layouts/layout_filtros_busqueda :: fragmento-oferta"></th:block>
+                        <!-- <button type="submit" onclick="filtrarProductos()">Filtrar</button> -->
+                    </form>
+
+                </div>
+                <!-- PRODUCTOS -->
+                <div class="contenedor-tabla-productos">
+                    <table class="caja-tabla" border = "1" th:if="${not productos.isEmpty()}">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Codigo</th>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <!--
+                                <th>Categoria</th>
+                                -->
+                                <th>Marca</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                                <th colspan="3">Opciones</th>
+
+                                <!-- 
+                                <th>Fecha de edición</th>
+                                -->
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr th:each="producto : ${productos}">
+                                <!-- ID -->
+                                <td th:text="${producto.id_producto}">
+                                    <!-- CODIGO -->
+                                <td th:text="${producto.codigo}"></td>
+                                <!-- IMAGEN -->
+                                <td><img th:src="@{/assets/productos/{rutaimagen}(rutaimagen = ${producto.imagenProductoEntity.rutaimagen}) }"
+                                         width="120px"></td>
+                                <!-- NOMBRE -->
+                                <td th:text="${producto.nombre}"></td>
+                                <!-- CATEGORIA -->
+                                <!--
+                                <td th:if="${producto.categoriaEntity.estado == true}" th:text="${producto.categoriaEntity.nombre}"></td>
+                                <td th:unless="${producto.categoriaEntity.estado == true}" th:text="${producto.categoriaEntity.nombre}" style="color: red; font-weight: bolder"></td>
+                                -->
+                                <!-- MARCA -->
+                                <td th:if="${producto.marcaEntity.estado == true}" th:text="${producto.marcaEntity.nombre}"></td>
+                                <td th:unless="${producto.marcaEntity.estado == true}" th:text="${producto.marcaEntity.nombre}" style="color: red; font-weight: bolder"></td>
+                                <!-- PRECIO -->
+                                <td>
+                                    <span th:if="${producto.preciooferta != null}" th:text="'S/.&nbsp;' + ${#numbers.formatDecimal(producto.precionormal, 1, 2)}" style="color: gray; text-decoration: line-through"></span>
+                                    <span th:unless="${producto.preciooferta != null}" th:text="'S/.&nbsp' + ${#numbers.formatDecimal(producto.precionormal, 1, 2)}"></span>
+                                    <br>
+                                    <span th:if="${producto.preciooferta} != null" th:text="'S/.&nbsp' + ${#numbers.formatDecimal(producto.preciooferta, 1, 2)}"></span>
+                                    <!--
+                                    <span th:unless="${producto.preciooferta} != null">No esta de oferta</span>
+                                    -->
+                                </td>
+                                <!--
+                                <td th:if="${producto.preciooferta != null}" th:text="'S/.' + ${producto.precionormal}" style="color: gray; text-decoration: line-through">
+                                <td th:unless="${producto.preciooferta != null}" th:text="'S/.' + ${producto.precionormal}">
+                                <td th:if="${producto.preciooferta} != null" th:text="'S/.' + ${producto.preciooferta}"></td>
+                                <td th:unless="${producto.preciooferta} != null">No esta de oferta</td>
+                                -->
+                                <!-- ESTADO -->
+                                <td class="celda-centrada"th:if="${producto.estado} == true"><img th:src="@{/img/check.png}" class="imagen-estado"></td>
+                                <td class="celda-centrada" th:unless="${producto.estado} == true"><img th:src="@{/img/error.png}" class="imagen-estado"></td>
+                                <!-- FECHA EDITADO -->
+                                <!--
+                                <td th:text="${producto.fechaeditado}"></td>
+                                -->
+                                <!-- DETALLES -->
+                                <td class="celda-centrada"><a class="boton-opcion" th:href="@{/admin/productos/{id_producto} (id_producto = ${producto.id_producto})}">Detalles</a></td>
+
+                                <td class="celda-centrada">
+                                    <a class="boton-opcion" th:href="@{/admin/productos/{id_producto}/editar (id_producto = ${producto.id_producto}) }">Editar</a>
+                                </td>
+                                <td class="celda-centrada">
+                                    <a class="boton-opcion" th:if="${producto.estado} == true" th:href="@{/admin/productos/{id_producto}/eliminar (id_producto = ${producto.id_producto}) }">Inhabilitar</a>
+                                    <a class="boton-opcion" th:unless="${producto.estado} == true" th:href="@{/admin/productos/{id_producto}/restaurar (id_producto = ${producto.id_producto}) }">Habilitar</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div th:if="${not productos.isEmpty()}">
+                        <th:block th:insert="layouts/layout_botones_paginacion :: fragmento-paginacion"></th:block>
+                    </div>
+                    <div class="error-sin-productos" th:if="${productos.isEmpty()}">
+                        <p>No hay productos disponibles en el sistema, intente quitar algunos filtros de busqueda.<p>
+                    </div>
+                    <div class="texto-nota">
+                        Nota: Todos los productos se ordenan de acuerdo a la ultima fecha de editado. Los productos inhabilitados no se les va a mostrar al usuario. El texto de color rojo indica que la marca esta inhabilitada.
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" th:inline="javascript" th:src="@{/js/admin_productos.js}"></script>
+    </body>
+</html>

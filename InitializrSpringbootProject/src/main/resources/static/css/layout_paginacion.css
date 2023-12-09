@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+:root{
+    --color-blanco: rgb(255, 255, 255);
+    --color-negro: rgb(0, 0, 0);
+    --color-primario: rgb(219, 239, 225);
+    --color-secundario: rgb(63, 134, 146);
+    --color-terciario: rgb(13, 97, 106);
+    --tipo-fuente-1: 'Roboto', sans-serif;
+    --tamaño-fuente-1: 14px;
+    --tamaño-fuente-2: 15px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.contenedor-botones-paginacion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2em 0;
+    /*width: 200px;*/
+
+}
+
+.pagina{
+    background-color: var(--color-primario);
+    margin: 0 0.5em;
+    align-self: center;
+    align-content: center;
+    border-radius: 2em;
+}
+.pagina-boton-inactivo,
+.pagina-boton-activo,
+.pagina-actual {
+    background-color: var(--color-terciario);
+    color: var(--color-blanco);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 1em;
+    padding: 0.5em 1em;
+}
+.pagina-boton-inactivo {
+    background-color: var(--color-secundario);
+}
+
+.pagina-boton-activo {
+    background-color: var(--color-primario);
+    color: var(--color-negro);
+}
+.pagina-boton-activo:hover {
+    background-color: black;
+    color: var(--color-blanco);
+}

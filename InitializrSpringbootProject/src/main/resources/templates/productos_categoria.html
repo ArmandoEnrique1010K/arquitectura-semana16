@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:each="categoria : ${categoriaActual}" >
+    <head>
+        <title th:text="${categoria.nombre}"></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/layout_barra_menu.css}">
+        <link rel="stylesheet" th:href="@{/css/pagina_productos.css}">
+        <link rel="stylesheet" th:href="@{/css/layout_cuadros_productos.css}">
+        <link rel="stylesheet" th:href="@{/css/layout_filtros.css}">
+        <link rel="stylesheet" th:href="@{/css/layout_paginacion.css}">
+    </head>
+    <body>
+        <div>
+            <th:block th:insert="layouts/layout_barra_menu :: fragmento-menu"></th:block>
+            <h1 th:text="${categoria.nombre}"></h1>
+
+            <!-- FORMULARIO PARA FILTROS -->
+            <div class="contenedor-filtros-productos">
+                <div class="contenedor-formulario-filtros">
+
+
+                    <form th:each="categoriaunica : ${categoriaActual}" th:action="@{/productos/{nombre}(nombre=${categoriaunica.nombre})}" autocomplete="off" method="GET">
+                        <th:block th:insert="layouts/layout_filtros_busqueda :: fragmento-marcas"></th:block>
+                        <th:block th:insert="layouts/layout_filtros_busqueda :: fragmento-precio"></th:block>
+                        <!--  --> 
+                        <th:block th:insert="layouts/layout_filtros_busqueda :: fragmento-oferta"></th:block>
+                    </form>
+                </div>
+                <div class="contenedor-tabla-productos">
+
+                    <th:block th:insert="layouts/layout_cuadros_productos :: fragmento-productos"></th:block>
+
+                    <div  th:if="${not productos.isEmpty()}" class="cuadro-botones-paginacion">
+                        <th:block th:insert="layouts/layout_botones_paginacion :: fragmento-paginacion"></th:block>
+                    </div>
+                    <div class="error-sin-productos" th:if="${productos.isEmpty()}">
+                        <p>No hay productos disponibles, intente quitar algunos filtros de busqueda<p>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript" th:inline="javascript" th:src="@{/js/productos_categoria.js}"></script>
+    </body>
+</html>
