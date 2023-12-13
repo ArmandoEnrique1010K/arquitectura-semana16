@@ -1,5 +1,9 @@
 package com.tiendaonline.service;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -9,12 +13,16 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 import javax.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.UnsupportedMediaTypeStatusException;
 
 @Service
 public class ImagenProductoServiceImpl implements ImagenProductoService{
@@ -37,7 +45,10 @@ public class ImagenProductoServiceImpl implements ImagenProductoService{
         return (extensionIndex != -1) ? nombreOriginal.substring(0, extensionIndex) : nombreOriginal;
     }
 
-    @Value("${storage.location.productos}")
+    @Autowired
+    private AmazonS3 amazonS3;
+    
+    @Value("${aws.s3.bucket}")
     private String storageLocationProductos;
 
     
@@ -55,37 +66,42 @@ public class ImagenProductoServiceImpl implements ImagenProductoService{
     
     @Override
     public String almacenarUnaImagen(MultipartFile imagen) {
-        // String nombreImagen = imagen.getOriginalFilename();
         if (imagen.isEmpty()) {
-            throw null;
+            throw new IllegalArgumentException("La imagen está vacía");
         }
 
         // Verificar si el tipo de archivo es válido (solo admitir JPG, PNG y GIF)
         String contentType = imagen.getContentType();
         if (contentType == null || !contentType.startsWith("image/")) {
-            throw null;
+            throw new UnsupportedMediaTypeStatusException("Tipo de archivo no admitido");
         }
 
         try {
-
             // Obtener la extensión del archivo original
-            String extension = obtenerExtension(imagen.getOriginalFilename());
+            String extension = StringUtils.getFilenameExtension(imagen.getOriginalFilename());
 
             // Generar un código aleatorio usando UUID
-            String codigoAleatorio = generarUUIDComoNombre("");
+            String codigoAleatorio = generarUUIDComoNombre(extension);
 
-            // Generar el nuevo nombre usando el código aleatorio, el nombre original y la extensión del archivo original
-            String nuevoNombre = codigoAleatorio + " - " + obtenerNombreOriginal(imagen.getOriginalFilename()) + extension;
+            // Generar el nuevo nombre usando el código aleatorio y la extensión del archivo original
+            String nuevoNombre = codigoAleatorio + "." + extension;
 
-            // Copiar la imagen al servidor con el nuevo nombre
-            InputStream inputStream = imagen.getInputStream();
-            Files.copy(inputStream, Paths.get(storageLocationProductos).resolve(nuevoNombre), StandardCopyOption.REPLACE_EXISTING);
+            // Configurar los metadatos del objeto
+            ObjectMetadata metadata = new ObjectMetadata();
+            metadata.setContentType(contentType);
+            metadata.setContentLength(imagen.getSize());
+
+            // Crear la solicitud de carga
+            PutObjectRequest putObjectRequest = new PutObjectRequest(storageLocationProductos, nuevoNombre, imagen.getInputStream(), metadata);
+
+            // Subir la imagen a S3
+            amazonS3.putObject(putObjectRequest);
 
             // Retornar el nombre de la imagen almacenada
             return nuevoNombre;
 
         } catch (IOException exception) {
-            throw null;
+            throw new RuntimeException("Error al subir la imagen a S3", exception);
         }
     }
     
@@ -101,26 +117,25 @@ public class ImagenProductoServiceImpl implements ImagenProductoService{
     @Override
     public Resource cargarComoRecurso(String nombreImagen) {
         try {
-            Path imagen = cargarImagen(nombreImagen);
-            Resource recurso = new UrlResource(imagen.toUri());
+            // Descargar la imagen desde S3
+            S3Object s3Object = amazonS3.getObject(storageLocationProductos, nombreImagen);
+            InputStream inputStream = s3Object.getObjectContent();
 
-            if (recurso.exists() || recurso.isReadable()) {
-                return recurso;
-            } else {
-            throw null;
-            }
-        } catch (MalformedURLException exception) {
-            throw null;
+            // Crear un recurso de InputStream para la imagen
+            return new InputStreamResource(inputStream);
+
+        } catch (Exception exception) {
+            throw new RuntimeException("Error al cargar la imagen desde S3", exception);
         }
     }
 
     @Override
     public void eliminarImagen(String nombreImagen) {
-        Path imagen = cargarImagen(nombreImagen);
         try {
-            FileSystemUtils.deleteRecursively(imagen);
+            // Eliminar la imagen desde S3
+            amazonS3.deleteObject(storageLocationProductos, nombreImagen);
         } catch (Exception exception) {
-            System.out.println(exception);
+            throw new RuntimeException("Error al eliminar la imagen desde S3", exception);
         }
     }
     
